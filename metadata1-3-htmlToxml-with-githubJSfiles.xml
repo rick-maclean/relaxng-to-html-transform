@@ -1,0 +1,109 @@
+﻿<root>
+  <markup>
+    <form xmlns="http://www.w3.org/1999/xhtml" xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:nsp="namespace_declaration">
+      <div name="/rootmarkup" class="element">
+        <label for="/rootmarkup" class="element">rootmarkup</label>
+        <div class="documentation">Comment describing rootMarkup</div>
+        <div name="/rootmarkup/firstmarkupunderroot" class="element">
+          <span class="indent">    </span>
+          <label for="/rootmarkup/firstmarkupunderroot" class="element">firstmarkupunderroot</label>
+          <input type="text" name="/rootmarkup/firstmarkupunderroot" class="data" />
+        </div>
+        <div name="/rootmarkup/secondmarkupunderroot" class="element">
+          <span class="indent">    </span>
+          <label for="/rootmarkup/secondmarkupunderroot" class="element">secondmarkupunderroot</label>
+          <span class="indent">    </span>
+          <span class="indent">    </span>
+          <select style="height: 20px" onchange="showOptionContent(this)" name="/rootmarkup/secondmarkupunderroot" class="choice">
+            <option value="firstchoice" name="/rootmarkup/secondmarkupunderroot/firstchoice" class="choice_option">firstchoice</option>
+            <option value="secondchoice" name="/rootmarkup/secondmarkupunderroot/secondchoice" class="choice_option">secondchoice</option>
+          </select>
+          <div name="firstchoice" style="display: none" class="choice_content">
+            <div name="/rootmarkup/secondmarkupunderroot/firstchoice" class="element">
+              <span class="indent">    </span>
+              <span class="indent">    </span>
+              <label for="/rootmarkup/secondmarkupunderroot/firstchoice" class="element">firstchoice</label>
+              <div class="attribute">
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <label for="/rootmarkup/secondmarkupunderroot/firstchoice/@choice" class="attribute"> choice : </label>
+                <input type="text" name="/rootmarkup/secondmarkupunderroot/firstchoice/@choice" class="data" />
+              </div>
+            </div>
+          </div>
+          <div name="secondchoice" style="display: none" class="choice_content">
+            <div name="/rootmarkup/secondmarkupunderroot/secondchoice" class="element">
+              <span class="indent">    </span>
+              <span class="indent">    </span>
+              <label for="/rootmarkup/secondmarkupunderroot/secondchoice" class="element">secondchoice</label>
+              <div name="/rootmarkup/secondmarkupunderroot/secondchoice/name" class="element">
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <label for="/rootmarkup/secondmarkupunderroot/secondchoice/name" class="element">name</label>
+                <input type="text" name="/rootmarkup/secondmarkupunderroot/secondchoice/name" class="data" />
+              </div>
+              <div name="/rootmarkup/secondmarkupunderroot/secondchoice/address" class="element">
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <label for="/rootmarkup/secondmarkupunderroot/secondchoice/address" class="element">address</label>
+                <input type="text" name="/rootmarkup/secondmarkupunderroot/secondchoice/address" class="data" />
+              </div>
+              <div name="/rootmarkup/secondmarkupunderroot/secondchoice/city" class="element">
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <label for="/rootmarkup/secondmarkupunderroot/secondchoice/city" class="element">city</label>
+                <input type="text" name="/rootmarkup/secondmarkupunderroot/secondchoice/city" class="data" />
+              </div>
+              <div name="/rootmarkup/secondmarkupunderroot/secondchoice/country" class="element">
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <label for="/rootmarkup/secondmarkupunderroot/secondchoice/country" class="element">country</label>
+                <select style="height: 20px" name="/rootmarkup/secondmarkupunderroot/secondchoice/country" sendselect="yes" class="choice">
+                  <option value="" name="/rootmarkup/secondmarkupunderroot/secondchoice/country" class="choice_option"></option>
+                  <option value="FR" name="/rootmarkup/secondmarkupunderroot/secondchoice/country" class="choice_option">FR</option>
+                  <option value="GB" name="/rootmarkup/secondmarkupunderroot/secondchoice/country" class="choice_option">GB</option>
+                  <option value="IT" name="/rootmarkup/secondmarkupunderroot/secondchoice/country" class="choice_option">IT</option>
+                </select>
+              </div>
+              <div name="/rootmarkup/secondmarkupunderroot/secondchoice/age" class="element">
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <label for="/rootmarkup/secondmarkupunderroot/secondchoice/age" class="element">age</label>
+                <input type="text" name="/rootmarkup/secondmarkupunderroot/secondchoice/age" class="data" />
+              </div>
+              <div class="attribute">
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <label for="/rootmarkup/secondmarkupunderroot/secondchoice/@choice" class="attribute"> choice : </label>
+                <input type="text" name="/rootmarkup/secondmarkupunderroot/secondchoice/@choice" class="data" />
+              </div>
+            </div>
+          </div>
+          <div class="attribute">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/rootmarkup/secondmarkupunderroot/@name" class="attribute"> name : </label>
+            <input type="text" name="/rootmarkup/secondmarkupunderroot/@name" class="data" />
+          </div>
+        </div>
+        <div class="attribute">
+          <span class="indent">    </span>
+          <label for="/rootmarkup/@id" class="attribute"> id : </label>
+          <input type="text" name="/rootmarkup/@id" class="data" />
+        </div>
+        <div class="attribute">
+          <span class="indent">    </span>
+          <label for="/rootmarkup/@type" class="attribute"> type : </label>
+          <input type="text" name="/rootmarkup/@type" class="data" />
+        </div>
+      </div>
+    </form>
+  </markup>
+</root>

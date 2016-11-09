@@ -1,0 +1,1580 @@
+﻿<root>
+  <markup>
+    <form xmlns="http://www.w3.org/1999/xhtml" xmlns:rng="http://relaxng.org/ns/structure/1.0" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" xmlns:nsp="namespace_declaration">
+      <div name="/DBLMetadata" class="element">
+        <label for="/DBLMetadata" class="element">DBLMetadata</label>
+        <div class="attribute">
+          <span class="indent">    </span><label for="/DBLMetadata/@type" class="attribute"> type : </label>audio
+        </div>
+        <div class="attribute">
+          <span class="indent">    </span><label for="/DBLMetadata/@typeVersion" class="attribute"> typeVersion : </label>1.3
+        </div>
+        <div class="attribute">
+          <span class="indent">    </span>
+          <label for="/DBLMetadata/@id" class="attribute"> id : </label>
+          <div class="documentation">id is overwritten at submission</div>
+          <input type="text" name="/DBLMetadata/@id" class="data" />
+        </div>
+        <div class="attribute">
+          <span class="indent">    </span>
+          <label for="/DBLMetadata/@revision" class="attribute"> revision : </label>
+          <input type="text" name="/DBLMetadata/@revision" class="data" />
+        </div>
+        <div name="/DBLMetadata/identification" class="element">
+          <span class="indent">    </span>
+          <label for="/DBLMetadata/identification" class="element">identification</label>
+          <div name="/DBLMetadata/identification/name" class="element">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/identification/name" class="element">name</label>
+            <div class="documentation">DCMI: title</div>
+            <input type="text" name="/DBLMetadata/identification/name" class="data" />
+          </div>
+          <div name="/DBLMetadata/identification/nameLocal" class="element">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/identification/nameLocal" class="element">nameLocal</label>
+            <div class="documentation">nameLocal should default to name</div>
+            <input type="text" name="/DBLMetadata/identification/nameLocal" class="data" />
+          </div>
+          <div name="/DBLMetadata/identification/scope" class="element">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/identification/scope" class="element">scope</label>
+            <div class="documentation">DCMI: title/scriptureScope</div>
+            <select style="height: 20px" name="/DBLMetadata/identification/scope" sendselect="yes" class="choice">
+              <option value="" name="/DBLMetadata/identification/scope" class="choice_option"></option>
+              <option value="Bible" name="/DBLMetadata/identification/scope" class="choice_option">Bible</option>
+              <option value="Bible with Deuterocanon" name="/DBLMetadata/identification/scope" class="choice_option">Bible with Deuterocanon</option>
+              <option value="Deuterocanon" name="/DBLMetadata/identification/scope" class="choice_option">Deuterocanon</option>
+              <option value="New Testament" name="/DBLMetadata/identification/scope" class="choice_option">New Testament</option>
+              <option value="New Testament+" name="/DBLMetadata/identification/scope" class="choice_option">New Testament+</option>
+              <option value="Old Testament" name="/DBLMetadata/identification/scope" class="choice_option">Old Testament</option>
+              <option value="Old Testament + Deuterocanon" name="/DBLMetadata/identification/scope" class="choice_option">Old Testament + Deuterocanon</option>
+              <option value="Old Testament+" name="/DBLMetadata/identification/scope" class="choice_option">Old Testament+</option>
+              <option value="Portions" name="/DBLMetadata/identification/scope" class="choice_option">Portions</option>
+              <option value="Selections" name="/DBLMetadata/identification/scope" class="choice_option">Selections</option>
+              <option value="Shorter Bible" name="/DBLMetadata/identification/scope" class="choice_option">Shorter Bible</option>
+            </select>
+          </div>
+          <div name="/DBLMetadata/identification/description" class="element">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/identification/description" class="element">description</label>
+            <div class="documentation">DCMI: description</div>
+            <input type="text" name="/DBLMetadata/identification/description" class="data" />
+          </div>
+          <div name="/DBLMetadata/identification/dateCompleted" class="element">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/identification/dateCompleted" class="element">dateCompleted</label>
+            <div class="documentation">DCMI: date</div>
+            <div class="optional">
+              <span class="indent">    </span>
+              <span class="indent">    </span>
+              <span class="indent">    </span>
+              <select style="height: 20px" onchange="showOptionContent(this)" name="/DBLMetadata/identification/dateCompleted" class="choice">
+                <option value="data 1" name="/DBLMetadata/identification/dateCompleted" class="choice_option">data 1</option>
+                <option value="data 2" name="/DBLMetadata/identification/dateCompleted" class="choice_option">data 2</option>
+                <option value="data 3" name="/DBLMetadata/identification/dateCompleted" class="choice_option">data 3</option>
+                <option value="data 4" name="/DBLMetadata/identification/dateCompleted" class="choice_option">data 4</option>
+              </select>
+              <div name="data 1" style="display: none" class="choice_content">
+                <input type="text" name="/DBLMetadata/identification/dateCompleted" class="data" />
+              </div>
+              <div name="data 2" style="display: none" class="choice_content">
+                <input type="text" name="/DBLMetadata/identification/dateCompleted" class="data" />
+              </div>
+              <div name="data 3" style="display: none" class="choice_content">
+                <input type="text" name="/DBLMetadata/identification/dateCompleted" class="data" />
+              </div>
+              <div name="data 4" style="display: none" class="choice_content">
+                <input type="text" name="/DBLMetadata/identification/dateCompleted" class="data" />
+              </div>
+            </div>
+          </div>
+          <span class="indent">    </span>
+          <span class="indent">    </span>
+          <input type="button" value="+" onclick="addOne(this)" name="/DBLMetadata/identification" nbelmtsadded="1" class="addButton" />
+          <input type="button" value="-" onclick="removeOne(this)" name="/DBLMetadata/identification" class="rmvButton" />
+          <div class="multiple" style="border: dashed; border-width: 1px">
+            <div name="/DBLMetadata/identification/systemId[1]" class="element">
+              <span class="indent">    </span>
+              <span class="indent">    </span>
+              <label for="/DBLMetadata/identification/systemId[1]" class="element">systemId</label>
+              <div class="attribute">
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <label for="/DBLMetadata/identification/systemId[1]/@type" class="attribute"> type : </label>
+                <select style="height: 20px" name="/DBLMetadata/identification/systemId[1]/@type" sendselect="yes" class="choice">
+                  <option value="" name="/DBLMetadata/identification/systemId[1]/@type" class="choice_option"></option>
+                  <option value="gbc" name="/DBLMetadata/identification/systemId[1]/@type" class="choice_option">gbc</option>
+                  <option value="tms" name="/DBLMetadata/identification/systemId[1]/@type" class="choice_option">tms</option>
+                  <option value="reap" name="/DBLMetadata/identification/systemId[1]/@type" class="choice_option">reap</option>
+                  <option value="dbp" name="/DBLMetadata/identification/systemId[1]/@type" class="choice_option">dbp</option>
+                </select>
+              </div>
+              <input type="text" name="/DBLMetadata/identification/systemId[1]" class="data" />
+            </div>
+          </div>
+          <div name="/DBLMetadata/identification/bundleProducer" class="element">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/identification/bundleProducer" class="element">bundleProducer</label>
+            <div class="documentation">bundleProducer is overwritten by Paratext</div>
+            <input type="text" name="/DBLMetadata/identification/bundleProducer" class="data" />
+          </div>
+        </div>
+        <div name="/DBLMetadata/confidential" class="element">
+          <span class="indent">    </span><label for="/DBLMetadata/confidential" class="element">confidential</label><div class="documentation">DCMI: accessRights/confidential</div> <input type="radio" value="true" name="/DBLMetadata/confidential" class="boolean" /> true      <input type="radio" value="false" name="/DBLMetadata/confidential" class="boolean" /> false
+        </div>
+        <div class="optional">
+          <div name="/DBLMetadata/relationships" class="element">
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/relationships" class="element">relationships</label>
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <input type="button" value="+" onclick="addOne(this)" name="/DBLMetadata/relationships" nbelmtsadded="1" class="addButton" />
+            <input type="button" value="-" onclick="removeOne(this)" name="/DBLMetadata/relationships" class="rmvButton" />
+            <div class="multiple" style="border: dashed; border-width: 1px">
+              <div name="/DBLMetadata/relationships/relation[1]" class="element">
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <label for="/DBLMetadata/relationships/relation[1]" class="element">relation</label>
+                <div class="documentation">DCMI: relation</div>
+                <div class="attribute">
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <label for="/DBLMetadata/relationships/relation[1]/@type" class="attribute"> type : </label>
+                  <select style="height: 20px" name="/DBLMetadata/relationships/relation[1]/@type" sendselect="yes" class="choice">
+                    <option value="" name="/DBLMetadata/relationships/relation[1]/@type" class="choice_option"></option>
+                    <option value="text" name="/DBLMetadata/relationships/relation[1]/@type" class="choice_option">text</option>
+                    <option value="print" name="/DBLMetadata/relationships/relation[1]/@type" class="choice_option">print</option>
+                    <option value="audio" name="/DBLMetadata/relationships/relation[1]/@type" class="choice_option">audio</option>
+                    <option value="video" name="/DBLMetadata/relationships/relation[1]/@type" class="choice_option">video</option>
+                    <option value="ebook" name="/DBLMetadata/relationships/relation[1]/@type" class="choice_option">ebook</option>
+                  </select>
+                </div>
+                <div class="attribute">
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <label for="/DBLMetadata/relationships/relation[1]/@id" class="attribute"> id : </label>
+                  <input type="text" name="/DBLMetadata/relationships/relation[1]/@id" class="data" />
+                </div>
+                <div class="attribute">
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <label for="/DBLMetadata/relationships/relation[1]/@revision" class="attribute"> revision : </label>
+                  <input type="text" name="/DBLMetadata/relationships/relation[1]/@revision" class="data" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div name="/DBLMetadata/agencies" class="element">
+          <span class="indent">    </span>
+          <label for="/DBLMetadata/agencies" class="element">agencies</label>
+          <span class="indent">    </span>
+          <span class="indent">    </span>
+          <input type="button" value="+" onclick="addOne(this)" name="/DBLMetadata/agencies" nbelmtsadded="1" class="addButton" />
+          <input type="button" value="-" onclick="removeOne(this)" name="/DBLMetadata/agencies" class="rmvButton" />
+          <div class="multiple" style="border: dashed; border-width: 1px">
+            <div name="/DBLMetadata/agencies/rightsHolder[1]" class="element">
+              <span class="indent">    </span>
+              <span class="indent">    </span>
+              <label for="/DBLMetadata/agencies/rightsHolder[1]" class="element">rightsHolder</label>
+              <div class="documentation">DCMI: rightsHolder</div>
+              <div class="optional">
+                <div class="attribute">
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <label for="/DBLMetadata/agencies/rightsHolder[1]/@abbr" class="attribute"> abbr : </label>
+                  <input type="text" name="/DBLMetadata/agencies/rightsHolder[1]/@abbr" class="data" />
+                </div>
+              </div>
+              <div class="optional">
+                <div class="attribute">
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <label for="/DBLMetadata/agencies/rightsHolder[1]/@url" class="attribute"> url : </label>
+                  <input type="file" name="/DBLMetadata/agencies/rightsHolder[1]/@url" class="file" />
+                </div>
+              </div>
+              <div class="optional">
+                <div class="attribute">
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <label for="/DBLMetadata/agencies/rightsHolder[1]/@local" class="attribute"> local : </label>
+                  <input type="text" name="/DBLMetadata/agencies/rightsHolder[1]/@local" class="data" />
+                </div>
+              </div>
+              <div class="attribute">
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <label for="/DBLMetadata/agencies/rightsHolder[1]/@uid" class="attribute"> uid : </label>
+                <input type="text" name="/DBLMetadata/agencies/rightsHolder[1]/@uid" class="data" />
+              </div>
+              <input type="text" name="/DBLMetadata/agencies/rightsHolder[1]" class="data" />
+            </div>
+          </div>
+          <div class="optional">
+            <div name="/DBLMetadata/agencies/rightsAdmin" class="element">
+              <span class="indent">    </span>
+              <span class="indent">    </span>
+              <label for="/DBLMetadata/agencies/rightsAdmin" class="element">rightsAdmin</label>
+              <div class="documentation">DCMI: rightsHolder</div>
+              <div class="optional">
+                <div class="attribute">
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <label for="/DBLMetadata/agencies/rightsAdmin/@url" class="attribute"> url : </label>
+                  <input type="file" name="/DBLMetadata/agencies/rightsAdmin/@url" class="file" />
+                </div>
+              </div>
+              <div class="attribute">
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <label for="/DBLMetadata/agencies/rightsAdmin/@uid" class="attribute"> uid : </label>
+                <input type="text" name="/DBLMetadata/agencies/rightsAdmin/@uid" class="data" />
+              </div>
+              <input type="text" name="/DBLMetadata/agencies/rightsAdmin" class="data" />
+            </div>
+          </div>
+          <span class="indent">    </span>
+          <span class="indent">    </span>
+          <input type="button" value="+" onclick="addOne(this)" name="/DBLMetadata/agencies" nbelmtsadded="1" class="addButton" />
+          <input type="button" value="-" onclick="removeOne(this)" name="/DBLMetadata/agencies" class="rmvButton" />
+          <div class="multiple" style="border: dashed; border-width: 1px">
+            <div name="/DBLMetadata/agencies/contributor[1]" class="element">
+              <span class="indent">    </span>
+              <span class="indent">    </span>
+              <label for="/DBLMetadata/agencies/contributor[1]" class="element">contributor</label>
+              <div class="documentation">DCMI: contributor</div>
+              <div class="optional">
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <input type="button" value="+" onclick="addOne(this)" name="/DBLMetadata/agencies/contributor[1]" nbelmtsadded="1" class="addButton" />
+                <input type="button" value="-" onclick="removeOne(this)" name="/DBLMetadata/agencies/contributor[1]" class="rmvButton" />
+                <div class="multiple" style="border: dashed; border-width: 1px">
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <select style="height: 20px" onchange="showOptionContent(this)" name="/DBLMetadata/agencies/contributor[1][]" class="choice">
+                    <option value="m.contributor.content" name="/DBLMetadata/agencies/contributor[1][]/m.contributor.content" class="choice_option">m.contributor.content</option>
+                    <option value="m.contributor.publication" name="/DBLMetadata/agencies/contributor[1][]/m.contributor.publication" class="choice_option">m.contributor.publication</option>
+                    <option value="m.contributor.management" name="/DBLMetadata/agencies/contributor[1][]/m.contributor.management" class="choice_option">m.contributor.management</option>
+                    <option value="m.contributor.finance" name="/DBLMetadata/agencies/contributor[1][]/m.contributor.finance" class="choice_option">m.contributor.finance</option>
+                    <option value="m.contributor.qa" name="/DBLMetadata/agencies/contributor[1][]/m.contributor.qa" class="choice_option">m.contributor.qa</option>
+                  </select>
+                  <div name="m.contributor.content" style="display: none" class="choice_content">
+                    <div class="attribute">
+                      <span class="indent">    </span><span class="indent">    </span><span class="indent">    </span><label for="/DBLMetadata/agencies/contributor[1][]/@content" class="attribute"> content : </label><input type="radio" value="true" name="/DBLMetadata/agencies/contributor[1][]/@content" class="boolean" /> true      <input type="radio" value="false" name="/DBLMetadata/agencies/contributor[1][]/@content" class="boolean" /> false
+                    </div>
+                  </div>
+                  <div name="m.contributor.publication" style="display: none" class="choice_content">
+                    <div class="attribute">
+                      <span class="indent">    </span><span class="indent">    </span><span class="indent">    </span><label for="/DBLMetadata/agencies/contributor[1][]/@publication" class="attribute"> publication : </label><input type="radio" value="true" name="/DBLMetadata/agencies/contributor[1][]/@publication" class="boolean" /> true      <input type="radio" value="false" name="/DBLMetadata/agencies/contributor[1][]/@publication" class="boolean" /> false
+                    </div>
+                  </div>
+                  <div name="m.contributor.management" style="display: none" class="choice_content">
+                    <div class="attribute">
+                      <span class="indent">    </span><span class="indent">    </span><span class="indent">    </span><label for="/DBLMetadata/agencies/contributor[1][]/@management" class="attribute"> management : </label><input type="radio" value="true" name="/DBLMetadata/agencies/contributor[1][]/@management" class="boolean" /> true      <input type="radio" value="false" name="/DBLMetadata/agencies/contributor[1][]/@management" class="boolean" /> false
+                    </div>
+                  </div>
+                  <div name="m.contributor.finance" style="display: none" class="choice_content">
+                    <div class="attribute">
+                      <span class="indent">    </span><span class="indent">    </span><span class="indent">    </span><label for="/DBLMetadata/agencies/contributor[1][]/@finance" class="attribute"> finance : </label><input type="radio" value="true" name="/DBLMetadata/agencies/contributor[1][]/@finance" class="boolean" /> true      <input type="radio" value="false" name="/DBLMetadata/agencies/contributor[1][]/@finance" class="boolean" /> false
+                    </div>
+                  </div>
+                  <div name="m.contributor.qa" style="display: none" class="choice_content">
+                    <div class="attribute">
+                      <span class="indent">    </span><span class="indent">    </span><span class="indent">    </span><label for="/DBLMetadata/agencies/contributor[1][]/@qa" class="attribute"> qa : </label><input type="radio" value="true" name="/DBLMetadata/agencies/contributor[1][]/@qa" class="boolean" /> true      <input type="radio" value="false" name="/DBLMetadata/agencies/contributor[1][]/@qa" class="boolean" /> false
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="attribute">
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <label for="/DBLMetadata/agencies/contributor[1]/@uid" class="attribute"> uid : </label>
+                <input type="text" name="/DBLMetadata/agencies/contributor[1]/@uid" class="data" />
+              </div>
+              <input type="text" name="/DBLMetadata/agencies/contributor[1]" class="data" />
+            </div>
+          </div>
+        </div>
+        <div name="/DBLMetadata/language" class="element">
+          <span class="indent">    </span>
+          <label for="/DBLMetadata/language" class="element">language</label>
+          <div name="/DBLMetadata/language/iso" class="element">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/language/iso" class="element">iso</label>
+            <div class="documentation">DCMI: language/iso (ISO639-3)</div>
+            <input type="text" name="/DBLMetadata/language/iso" class="data" />
+          </div>
+          <div name="/DBLMetadata/language/name" class="element">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/language/name" class="element">name</label>
+            <div class="documentation">DCMI: subject/language (ISO639-3)</div>
+            <input type="text" name="/DBLMetadata/language/name" class="data" />
+          </div>
+          <div name="/DBLMetadata/language/nameLocal" class="element">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/language/nameLocal" class="element">nameLocal</label>
+            <div class="documentation">DCMI: subject/language (ISO639-3)</div>
+            <input type="text" name="/DBLMetadata/language/nameLocal" class="data" />
+          </div>
+          <div name="/DBLMetadata/language/ldml" class="element">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/language/ldml" class="element">ldml</label>
+            <div class="documentation">DCMI: language/ldml</div>
+            <div class="optional">
+              <input type="text" name="/DBLMetadata/language/ldml" class="data" />
+            </div>
+          </div>
+          <div name="/DBLMetadata/language/rod" class="element">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/language/rod" class="element">rod</label>
+            <div class="documentation">DCMI: language/rod</div>
+            <div class="optional">
+              <input type="text" name="/DBLMetadata/language/rod" class="data" />
+            </div>
+          </div>
+        </div>
+        <div name="/DBLMetadata/country" class="element">
+          <span class="indent">    </span>
+          <label for="/DBLMetadata/country" class="element">country</label>
+          <div name="/DBLMetadata/country/iso" class="element">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/country/iso" class="element">iso</label>
+            <div class="documentation">DCMI: coverage/spatial (ISO3166)</div>
+            <input type="text" name="/DBLMetadata/country/iso" class="data" />
+          </div>
+          <div name="/DBLMetadata/country/name" class="element">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/country/name" class="element">name</label>
+            <div class="documentation">DCMI: subject/subjectCountry</div>
+            <input type="text" name="/DBLMetadata/country/name" class="data" />
+          </div>
+        </div>
+        <div name="/DBLMetadata/type" class="element">
+          <span class="indent">    </span>
+          <label for="/DBLMetadata/type" class="element">type</label>
+          <div name="/DBLMetadata/type/audioType" class="element">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/type/audioType" class="element">audioType</label>
+            <div class="documentation">DCMI: type/audioType</div>
+            <div class="optional">
+              <select style="height: 20px" name="/DBLMetadata/type/audioType" sendselect="yes" class="choice">
+                <option value="" name="/DBLMetadata/type/audioType" class="choice_option"></option>
+                <option value="Dramatized" name="/DBLMetadata/type/audioType" class="choice_option">Dramatized</option>
+                <option value="Non-Dramatized" name="/DBLMetadata/type/audioType" class="choice_option">Non-Dramatized</option>
+                <option value="Single-Voice" name="/DBLMetadata/type/audioType" class="choice_option">Single-Voice</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div name="/DBLMetadata/format" class="element">
+          <span class="indent">    </span>
+          <label for="/DBLMetadata/format" class="element">format</label>
+          <div class="documentation">DCMI: format</div>
+          <div name="/DBLMetadata/format/mimeType" class="element">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/format/mimeType" class="element">mimeType</label>
+            <select style="height: 20px" name="/DBLMetadata/format/mimeType" sendselect="yes" class="choice">
+              <option value="" name="/DBLMetadata/format/mimeType" class="choice_option"></option>
+              <option value="audio/mpeg" name="/DBLMetadata/format/mimeType" class="choice_option">audio/mpeg</option>
+              <option value="audio/wav" name="/DBLMetadata/format/mimeType" class="choice_option">audio/wav</option>
+            </select>
+          </div>
+          <div class="documentation">http://www.ebu.ch/metadata/cs/web/ebu_AudioCompressionCodeCS_p.xml.htm</div>
+          <div name="/DBLMetadata/format/compression" class="element">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/format/compression" class="element">compression</label>
+            <select style="height: 20px" name="/DBLMetadata/format/compression" sendselect="yes" class="choice">
+              <option value="" name="/DBLMetadata/format/compression" class="choice_option"></option>
+              <option value="MP3" name="/DBLMetadata/format/compression" class="choice_option">MP3</option>
+              <option value="FLAC" name="/DBLMetadata/format/compression" class="choice_option">FLAC</option>
+              <option value="WAV" name="/DBLMetadata/format/compression" class="choice_option">WAV</option>
+            </select>
+          </div>
+          <div class="documentation">http://www.ebu.ch/metadata/cs/web/ebu_AudioFormatCodeCS_p.xml.htm</div>
+          <div name="/DBLMetadata/format/trackConfiguration" class="element">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/format/trackConfiguration" class="element">trackConfiguration</label>
+            <select style="height: 20px" name="/DBLMetadata/format/trackConfiguration" sendselect="yes" class="choice">
+              <option value="" name="/DBLMetadata/format/trackConfiguration" class="choice_option"></option>
+              <option value="1/0 (Mono)" name="/DBLMetadata/format/trackConfiguration" class="choice_option">1/0 (Mono)</option>
+              <option value="Dual mono" name="/DBLMetadata/format/trackConfiguration" class="choice_option">Dual mono</option>
+              <option value="2/0 (Stereo)" name="/DBLMetadata/format/trackConfiguration" class="choice_option">2/0 (Stereo)</option>
+              <option value="5.1 Surround" name="/DBLMetadata/format/trackConfiguration" class="choice_option">5.1 Surround</option>
+            </select>
+          </div>
+          <div name="/DBLMetadata/format/bitRate" class="element">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/format/bitRate" class="element">bitRate</label>
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <select style="height: 20px" onchange="showOptionContent(this)" name="/DBLMetadata/format/bitRate" class="choice">
+              <option value="data 1" name="/DBLMetadata/format/bitRate" class="choice_option">data 1</option>
+              <option value="empty 2" name="/DBLMetadata/format/bitRate" class="choice_option">empty 2</option>
+            </select>
+            <div name="data 1" style="display: none" class="choice_content">
+              <input type="text" name="/DBLMetadata/format/bitRate" class="data" />
+            </div>
+            <div name="empty 2" style="display: none" class="choice_content"></div>
+          </div>
+          <div name="/DBLMetadata/format/bitDepth" class="element">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/format/bitDepth" class="element">bitDepth</label>
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <select style="height: 20px" onchange="showOptionContent(this)" name="/DBLMetadata/format/bitDepth" class="choice">
+              <option value="data 1" name="/DBLMetadata/format/bitDepth" class="choice_option">data 1</option>
+              <option value="empty 2" name="/DBLMetadata/format/bitDepth" class="choice_option">empty 2</option>
+            </select>
+            <div name="data 1" style="display: none" class="choice_content">
+              <input type="text" name="/DBLMetadata/format/bitDepth" class="data" />
+            </div>
+            <div name="empty 2" style="display: none" class="choice_content"></div>
+          </div>
+          <div name="/DBLMetadata/format/samplingRate" class="element">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/format/samplingRate" class="element">samplingRate</label>
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <select style="height: 20px" onchange="showOptionContent(this)" name="/DBLMetadata/format/samplingRate" class="choice">
+              <option value="data 1" name="/DBLMetadata/format/samplingRate" class="choice_option">data 1</option>
+              <option value="empty 2" name="/DBLMetadata/format/samplingRate" class="choice_option">empty 2</option>
+            </select>
+            <div name="data 1" style="display: none" class="choice_content">
+              <input type="text" name="/DBLMetadata/format/samplingRate" class="data" />
+            </div>
+            <div name="empty 2" style="display: none" class="choice_content"></div>
+          </div>
+        </div>
+        <div name="/DBLMetadata/books" class="element">
+          <span class="indent">    </span>
+          <label for="/DBLMetadata/books" class="element">books</label>
+          <span class="indent">    </span>
+          <span class="indent">    </span>
+          <input type="button" value="+" onclick="addOne(this)" name="/DBLMetadata/books" nbelmtsadded="1" class="addButton" />
+          <input type="button" value="-" onclick="removeOne(this)" name="/DBLMetadata/books" class="rmvButton" />
+          <div class="multiple" style="border: dashed; border-width: 1px">
+            <div name="/DBLMetadata/books/book[1]" class="element">
+              <span class="indent">    </span>
+              <span class="indent">    </span>
+              <label for="/DBLMetadata/books/book[1]" class="element">book</label>
+              <div class="attribute">
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <label for="/DBLMetadata/books/book[1]/@code" class="attribute"> code : </label>
+                <select style="height: 20px" name="/DBLMetadata/books/book[1]/@code" sendselect="yes" class="choice">
+                  <option value="" name="/DBLMetadata/books/book[1]/@code" class="choice_option"></option>
+                  <option value="GEN" name="/DBLMetadata/books/book[1]/@code" class="choice_option">GEN</option>
+                  <option value="EXO" name="/DBLMetadata/books/book[1]/@code" class="choice_option">EXO</option>
+                  <option value="LEV" name="/DBLMetadata/books/book[1]/@code" class="choice_option">LEV</option>
+                  <option value="NUM" name="/DBLMetadata/books/book[1]/@code" class="choice_option">NUM</option>
+                  <option value="DEU" name="/DBLMetadata/books/book[1]/@code" class="choice_option">DEU</option>
+                  <option value="JOS" name="/DBLMetadata/books/book[1]/@code" class="choice_option">JOS</option>
+                  <option value="JDG" name="/DBLMetadata/books/book[1]/@code" class="choice_option">JDG</option>
+                  <option value="RUT" name="/DBLMetadata/books/book[1]/@code" class="choice_option">RUT</option>
+                  <option value="1SA" name="/DBLMetadata/books/book[1]/@code" class="choice_option">1SA</option>
+                  <option value="2SA" name="/DBLMetadata/books/book[1]/@code" class="choice_option">2SA</option>
+                  <option value="1KI" name="/DBLMetadata/books/book[1]/@code" class="choice_option">1KI</option>
+                  <option value="2KI" name="/DBLMetadata/books/book[1]/@code" class="choice_option">2KI</option>
+                  <option value="1CH" name="/DBLMetadata/books/book[1]/@code" class="choice_option">1CH</option>
+                  <option value="2CH" name="/DBLMetadata/books/book[1]/@code" class="choice_option">2CH</option>
+                  <option value="EZR" name="/DBLMetadata/books/book[1]/@code" class="choice_option">EZR</option>
+                  <option value="NEH" name="/DBLMetadata/books/book[1]/@code" class="choice_option">NEH</option>
+                  <option value="EST" name="/DBLMetadata/books/book[1]/@code" class="choice_option">EST</option>
+                  <option value="JOB" name="/DBLMetadata/books/book[1]/@code" class="choice_option">JOB</option>
+                  <option value="PSA" name="/DBLMetadata/books/book[1]/@code" class="choice_option">PSA</option>
+                  <option value="PRO" name="/DBLMetadata/books/book[1]/@code" class="choice_option">PRO</option>
+                  <option value="ECC" name="/DBLMetadata/books/book[1]/@code" class="choice_option">ECC</option>
+                  <option value="SNG" name="/DBLMetadata/books/book[1]/@code" class="choice_option">SNG</option>
+                  <option value="ISA" name="/DBLMetadata/books/book[1]/@code" class="choice_option">ISA</option>
+                  <option value="JER" name="/DBLMetadata/books/book[1]/@code" class="choice_option">JER</option>
+                  <option value="LAM" name="/DBLMetadata/books/book[1]/@code" class="choice_option">LAM</option>
+                  <option value="EZK" name="/DBLMetadata/books/book[1]/@code" class="choice_option">EZK</option>
+                  <option value="DAN" name="/DBLMetadata/books/book[1]/@code" class="choice_option">DAN</option>
+                  <option value="HOS" name="/DBLMetadata/books/book[1]/@code" class="choice_option">HOS</option>
+                  <option value="JOL" name="/DBLMetadata/books/book[1]/@code" class="choice_option">JOL</option>
+                  <option value="AMO" name="/DBLMetadata/books/book[1]/@code" class="choice_option">AMO</option>
+                  <option value="OBA" name="/DBLMetadata/books/book[1]/@code" class="choice_option">OBA</option>
+                  <option value="JON" name="/DBLMetadata/books/book[1]/@code" class="choice_option">JON</option>
+                  <option value="MIC" name="/DBLMetadata/books/book[1]/@code" class="choice_option">MIC</option>
+                  <option value="NAM" name="/DBLMetadata/books/book[1]/@code" class="choice_option">NAM</option>
+                  <option value="HAB" name="/DBLMetadata/books/book[1]/@code" class="choice_option">HAB</option>
+                  <option value="ZEP" name="/DBLMetadata/books/book[1]/@code" class="choice_option">ZEP</option>
+                  <option value="HAG" name="/DBLMetadata/books/book[1]/@code" class="choice_option">HAG</option>
+                  <option value="ZEC" name="/DBLMetadata/books/book[1]/@code" class="choice_option">ZEC</option>
+                  <option value="MAL" name="/DBLMetadata/books/book[1]/@code" class="choice_option">MAL</option>
+                  <option value="MAT" name="/DBLMetadata/books/book[1]/@code" class="choice_option">MAT</option>
+                  <option value="MRK" name="/DBLMetadata/books/book[1]/@code" class="choice_option">MRK</option>
+                  <option value="LUK" name="/DBLMetadata/books/book[1]/@code" class="choice_option">LUK</option>
+                  <option value="JHN" name="/DBLMetadata/books/book[1]/@code" class="choice_option">JHN</option>
+                  <option value="ACT" name="/DBLMetadata/books/book[1]/@code" class="choice_option">ACT</option>
+                  <option value="ROM" name="/DBLMetadata/books/book[1]/@code" class="choice_option">ROM</option>
+                  <option value="1CO" name="/DBLMetadata/books/book[1]/@code" class="choice_option">1CO</option>
+                  <option value="2CO" name="/DBLMetadata/books/book[1]/@code" class="choice_option">2CO</option>
+                  <option value="GAL" name="/DBLMetadata/books/book[1]/@code" class="choice_option">GAL</option>
+                  <option value="EPH" name="/DBLMetadata/books/book[1]/@code" class="choice_option">EPH</option>
+                  <option value="PHP" name="/DBLMetadata/books/book[1]/@code" class="choice_option">PHP</option>
+                  <option value="COL" name="/DBLMetadata/books/book[1]/@code" class="choice_option">COL</option>
+                  <option value="1TH" name="/DBLMetadata/books/book[1]/@code" class="choice_option">1TH</option>
+                  <option value="2TH" name="/DBLMetadata/books/book[1]/@code" class="choice_option">2TH</option>
+                  <option value="1TI" name="/DBLMetadata/books/book[1]/@code" class="choice_option">1TI</option>
+                  <option value="2TI" name="/DBLMetadata/books/book[1]/@code" class="choice_option">2TI</option>
+                  <option value="TIT" name="/DBLMetadata/books/book[1]/@code" class="choice_option">TIT</option>
+                  <option value="PHM" name="/DBLMetadata/books/book[1]/@code" class="choice_option">PHM</option>
+                  <option value="HEB" name="/DBLMetadata/books/book[1]/@code" class="choice_option">HEB</option>
+                  <option value="JAS" name="/DBLMetadata/books/book[1]/@code" class="choice_option">JAS</option>
+                  <option value="1PE" name="/DBLMetadata/books/book[1]/@code" class="choice_option">1PE</option>
+                  <option value="2PE" name="/DBLMetadata/books/book[1]/@code" class="choice_option">2PE</option>
+                  <option value="1JN" name="/DBLMetadata/books/book[1]/@code" class="choice_option">1JN</option>
+                  <option value="2JN" name="/DBLMetadata/books/book[1]/@code" class="choice_option">2JN</option>
+                  <option value="3JN" name="/DBLMetadata/books/book[1]/@code" class="choice_option">3JN</option>
+                  <option value="JUD" name="/DBLMetadata/books/book[1]/@code" class="choice_option">JUD</option>
+                  <option value="REV" name="/DBLMetadata/books/book[1]/@code" class="choice_option">REV</option>
+                  <option value="TOB" name="/DBLMetadata/books/book[1]/@code" class="choice_option">TOB</option>
+                  <option value="JDT" name="/DBLMetadata/books/book[1]/@code" class="choice_option">JDT</option>
+                  <option value="ESG" name="/DBLMetadata/books/book[1]/@code" class="choice_option">ESG</option>
+                  <option value="WIS" name="/DBLMetadata/books/book[1]/@code" class="choice_option">WIS</option>
+                  <option value="SIR" name="/DBLMetadata/books/book[1]/@code" class="choice_option">SIR</option>
+                  <option value="BAR" name="/DBLMetadata/books/book[1]/@code" class="choice_option">BAR</option>
+                  <option value="LJE" name="/DBLMetadata/books/book[1]/@code" class="choice_option">LJE</option>
+                  <option value="S3Y" name="/DBLMetadata/books/book[1]/@code" class="choice_option">S3Y</option>
+                  <option value="SUS" name="/DBLMetadata/books/book[1]/@code" class="choice_option">SUS</option>
+                  <option value="BEL" name="/DBLMetadata/books/book[1]/@code" class="choice_option">BEL</option>
+                  <option value="1MA" name="/DBLMetadata/books/book[1]/@code" class="choice_option">1MA</option>
+                  <option value="2MA" name="/DBLMetadata/books/book[1]/@code" class="choice_option">2MA</option>
+                  <option value="3MA" name="/DBLMetadata/books/book[1]/@code" class="choice_option">3MA</option>
+                  <option value="4MA" name="/DBLMetadata/books/book[1]/@code" class="choice_option">4MA</option>
+                  <option value="1ES" name="/DBLMetadata/books/book[1]/@code" class="choice_option">1ES</option>
+                  <option value="2ES" name="/DBLMetadata/books/book[1]/@code" class="choice_option">2ES</option>
+                  <option value="MAN" name="/DBLMetadata/books/book[1]/@code" class="choice_option">MAN</option>
+                  <option value="PS2" name="/DBLMetadata/books/book[1]/@code" class="choice_option">PS2</option>
+                  <option value="ODA" name="/DBLMetadata/books/book[1]/@code" class="choice_option">ODA</option>
+                  <option value="PSS" name="/DBLMetadata/books/book[1]/@code" class="choice_option">PSS</option>
+                  <option value="JSA" name="/DBLMetadata/books/book[1]/@code" class="choice_option">JSA</option>
+                  <option value="JDB" name="/DBLMetadata/books/book[1]/@code" class="choice_option">JDB</option>
+                  <option value="TBS" name="/DBLMetadata/books/book[1]/@code" class="choice_option">TBS</option>
+                  <option value="SST" name="/DBLMetadata/books/book[1]/@code" class="choice_option">SST</option>
+                  <option value="DNT" name="/DBLMetadata/books/book[1]/@code" class="choice_option">DNT</option>
+                  <option value="BLT" name="/DBLMetadata/books/book[1]/@code" class="choice_option">BLT</option>
+                  <option value="EZA" name="/DBLMetadata/books/book[1]/@code" class="choice_option">EZA</option>
+                  <option value="5EZ" name="/DBLMetadata/books/book[1]/@code" class="choice_option">5EZ</option>
+                  <option value="6EZ" name="/DBLMetadata/books/book[1]/@code" class="choice_option">6EZ</option>
+                  <option value="DAG" name="/DBLMetadata/books/book[1]/@code" class="choice_option">DAG</option>
+                  <option value="PS3" name="/DBLMetadata/books/book[1]/@code" class="choice_option">PS3</option>
+                  <option value="2BA" name="/DBLMetadata/books/book[1]/@code" class="choice_option">2BA</option>
+                  <option value="LBA" name="/DBLMetadata/books/book[1]/@code" class="choice_option">LBA</option>
+                  <option value="JUB" name="/DBLMetadata/books/book[1]/@code" class="choice_option">JUB</option>
+                  <option value="ENO" name="/DBLMetadata/books/book[1]/@code" class="choice_option">ENO</option>
+                  <option value="1MQ" name="/DBLMetadata/books/book[1]/@code" class="choice_option">1MQ</option>
+                  <option value="2MQ" name="/DBLMetadata/books/book[1]/@code" class="choice_option">2MQ</option>
+                  <option value="3MQ" name="/DBLMetadata/books/book[1]/@code" class="choice_option">3MQ</option>
+                  <option value="REP" name="/DBLMetadata/books/book[1]/@code" class="choice_option">REP</option>
+                  <option value="4BA" name="/DBLMetadata/books/book[1]/@code" class="choice_option">4BA</option>
+                  <option value="LAO" name="/DBLMetadata/books/book[1]/@code" class="choice_option">LAO</option>
+                  <option value="XXA" name="/DBLMetadata/books/book[1]/@code" class="choice_option">XXA</option>
+                  <option value="XXB" name="/DBLMetadata/books/book[1]/@code" class="choice_option">XXB</option>
+                  <option value="XXC" name="/DBLMetadata/books/book[1]/@code" class="choice_option">XXC</option>
+                  <option value="XXD" name="/DBLMetadata/books/book[1]/@code" class="choice_option">XXD</option>
+                  <option value="XXE" name="/DBLMetadata/books/book[1]/@code" class="choice_option">XXE</option>
+                  <option value="XXF" name="/DBLMetadata/books/book[1]/@code" class="choice_option">XXF</option>
+                  <option value="XXG" name="/DBLMetadata/books/book[1]/@code" class="choice_option">XXG</option>
+                  <option value="FRT" name="/DBLMetadata/books/book[1]/@code" class="choice_option">FRT</option>
+                  <option value="BAK" name="/DBLMetadata/books/book[1]/@code" class="choice_option">BAK</option>
+                  <option value="OTH" name="/DBLMetadata/books/book[1]/@code" class="choice_option">OTH</option>
+                  <option value="INT" name="/DBLMetadata/books/book[1]/@code" class="choice_option">INT</option>
+                  <option value="CNC" name="/DBLMetadata/books/book[1]/@code" class="choice_option">CNC</option>
+                  <option value="GLO" name="/DBLMetadata/books/book[1]/@code" class="choice_option">GLO</option>
+                  <option value="TDX" name="/DBLMetadata/books/book[1]/@code" class="choice_option">TDX</option>
+                  <option value="NDX" name="/DBLMetadata/books/book[1]/@code" class="choice_option">NDX</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div name="/DBLMetadata/copyright" class="element">
+          <span class="indent">    </span>
+          <label for="/DBLMetadata/copyright" class="element">copyright</label>
+          <div name="/DBLMetadata/copyright/statement" class="element">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/copyright/statement" class="element">statement</label>
+            <div class="documentation"> For example: (C)2002, 2012 United Bible Societies DCMI: rights </div>
+            <div class="attribute">
+              <span class="indent">    </span><span class="indent">    </span><span class="indent">    </span><label for="/DBLMetadata/copyright/statement/@contentType" class="attribute"> contentType : </label>xhtml
+            </div>
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <input type="button" value="+" onclick="addOne(this)" name="/DBLMetadata/copyright/statement" nbelmtsadded="1" class="addButton" />
+            <input type="button" value="-" onclick="removeOne(this)" name="/DBLMetadata/copyright/statement" class="rmvButton" />
+            <div class="multiple" style="border: dashed; border-width: 1px">
+              <span class="indent">    </span>
+              <span class="indent">    </span>
+              <span class="indent">    </span>
+              <select style="height: 20px" onchange="showOptionContent(this)" name="/DBLMetadata/copyright/statement[]" class="choice">
+                <option value="m.p" name="/DBLMetadata/copyright/statement[]/m.p" class="choice_option">m.p</option>
+                <option value="m.h1" name="/DBLMetadata/copyright/statement[]/m.h1" class="choice_option">m.h1</option>
+                <option value="m.h2" name="/DBLMetadata/copyright/statement[]/m.h2" class="choice_option">m.h2</option>
+                <option value="m.h3" name="/DBLMetadata/copyright/statement[]/m.h3" class="choice_option">m.h3</option>
+                <option value="m.ul" name="/DBLMetadata/copyright/statement[]/m.ul" class="choice_option">m.ul</option>
+                <option value="m.ol" name="/DBLMetadata/copyright/statement[]/m.ol" class="choice_option">m.ol</option>
+                <option value="m.blockquote" name="/DBLMetadata/copyright/statement[]/m.blockquote" class="choice_option">m.blockquote</option>
+                <option value="m.htmlCharMarkup" name="/DBLMetadata/copyright/statement[]/m.htmlCharMarkup" class="choice_option">m.htmlCharMarkup</option>
+              </select>
+              <div name="m.p" style="display: none" class="choice_content">
+                <div name="/DBLMetadata/copyright/statement/p[1]" class="element">
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <label for="/DBLMetadata/copyright/statement/p[1]" class="element">p</label>
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <input type="button" value="+" onclick="addOne(this)" name="/DBLMetadata/copyright/statement/p[1]" nbelmtsadded="1" class="addButton" />
+                  <input type="button" value="-" onclick="removeOne(this)" name="/DBLMetadata/copyright/statement/p[1]" class="rmvButton" />
+                  <div class="multiple" style="border: dashed; border-width: 1px">
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <select style="height: 20px" onchange="showOptionContent(this)" name="/DBLMetadata/copyright/statement/p[1][]" class="choice">
+                      <option value="text 1" name="/DBLMetadata/copyright/statement/p[1][]" class="choice_option">text 1</option>
+                      <option value="m.htmlCharMarkup" name="/DBLMetadata/copyright/statement/p[1][]/m.htmlCharMarkup" class="choice_option">m.htmlCharMarkup</option>
+                    </select>
+                    <div name="text 1" style="display: none" class="choice_content">
+                      <textarea name="/DBLMetadata/copyright/statement/p[1][]/text()" class="text" cols="90" rows="6"></textarea>
+                    </div>
+                    <div name="m.htmlCharMarkup" style="display: none" class="choice_content">
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <select style="height: 20px" onchange="showOptionContent(this)" name="/DBLMetadata/copyright/statement/p[1][]" class="choice">
+                        <option value="text 1" name="/DBLMetadata/copyright/statement/p[1][]" class="choice_option">text 1</option>
+                        <option value="m.a" name="/DBLMetadata/copyright/statement/p[1][]/m.a" class="choice_option">m.a</option>
+                        <option value="m.img" name="/DBLMetadata/copyright/statement/p[1][]/m.img" class="choice_option">m.img</option>
+                        <option value="m.br" name="/DBLMetadata/copyright/statement/p[1][]/m.br" class="choice_option">m.br</option>
+                        <option value="m.strong" name="/DBLMetadata/copyright/statement/p[1][]/m.strong" class="choice_option">m.strong</option>
+                        <option value="m.b" name="/DBLMetadata/copyright/statement/p[1][]/m.b" class="choice_option">m.b</option>
+                        <option value="m.em" name="/DBLMetadata/copyright/statement/p[1][]/m.em" class="choice_option">m.em</option>
+                        <option value="m.i" name="/DBLMetadata/copyright/statement/p[1][]/m.i" class="choice_option">m.i</option>
+                      </select>
+                      <div name="text 1" style="display: none" class="choice_content">
+                        <textarea name="/DBLMetadata/copyright/statement/p[1][]/text()" class="text" cols="90" rows="6"></textarea>
+                      </div>
+                      <div name="m.a" style="display: none" class="choice_content">
+                        <div name="/DBLMetadata/copyright/statement/p[1]/a[1]" class="element">
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <label for="/DBLMetadata/copyright/statement/p[1]/a[1]" class="element">a</label>
+                          <input type="button" value="add a m.htmlCharMarkup" name="/DBLMetadata/copyright/statement/p[1]/a[1]" cyclic="/m.DBLMetadata/m.copyright/m.statement/m.htmlMarkup/m.p/m.htmlCharMarkup/m.a/m.htmlCharMarkup" cyclic_place="/m.DBLMetadata/m.copyright/m.statement/m.htmlMarkup/m.p/m.htmlCharMarkup/m.a/m.htmlCharMarkup/m.a" onclick="addCyclic(this)" />
+                          <div class="cyclic" refs="/m.DBLMetadata/m.copyright/m.statement/m.htmlMarkup/m.p/m.htmlCharMarkup/m.a/m.htmlCharMarkup" style="display: none">
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <select style="height: 20px" onchange="showOptionContent(this)" name="/DBLMetadata/copyright/statement/p[1]/a[1]" class="choice">
+                              <option value="text 1" name="/DBLMetadata/copyright/statement/p[1]/a[1]" class="choice_option">text 1</option>
+                              <option value="m.a" name="/DBLMetadata/copyright/statement/p[1]/a[1]/m.a" class="choice_option">m.a</option>
+                              <option value="m.img" name="/DBLMetadata/copyright/statement/p[1]/a[1]/m.img" class="choice_option">m.img</option>
+                              <option value="m.br" name="/DBLMetadata/copyright/statement/p[1]/a[1]/m.br" class="choice_option">m.br</option>
+                              <option value="m.strong" name="/DBLMetadata/copyright/statement/p[1]/a[1]/m.strong" class="choice_option">m.strong</option>
+                              <option value="m.b" name="/DBLMetadata/copyright/statement/p[1]/a[1]/m.b" class="choice_option">m.b</option>
+                              <option value="m.em" name="/DBLMetadata/copyright/statement/p[1]/a[1]/m.em" class="choice_option">m.em</option>
+                              <option value="m.i" name="/DBLMetadata/copyright/statement/p[1]/a[1]/m.i" class="choice_option">m.i</option>
+                            </select>
+                            <div name="text 1" style="display: none" class="choice_content">
+                              <textarea name="/DBLMetadata/copyright/statement/p[1]/a[1]/text()" class="text" cols="90" rows="6"></textarea>
+                            </div>
+                            <div name="m.a" style="display: none" class="choice_content"></div>
+                            <div name="m.img" style="display: none" class="choice_content"></div>
+                            <div name="m.br" style="display: none" class="choice_content"></div>
+                            <div name="m.strong" style="display: none" class="choice_content"></div>
+                            <div name="m.b" style="display: none" class="choice_content"></div>
+                            <div name="m.em" style="display: none" class="choice_content"></div>
+                            <div name="m.i" style="display: none" class="choice_content"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div name="m.img" style="display: none" class="choice_content">
+                        <div name="/DBLMetadata/copyright/statement/p[1]/img[1]" class="element">
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <label for="/DBLMetadata/copyright/statement/p[1]/img[1]" class="element">img</label>
+                          <div class="optional"></div>
+                          <textarea name="/DBLMetadata/copyright/statement/p[1]/img[1]/text()" class="text" cols="90" rows="6"></textarea>
+                        </div>
+                      </div>
+                      <div name="m.br" style="display: none" class="choice_content">
+                        <div name="/DBLMetadata/copyright/statement/p[1]/br[1]" class="element">
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <label for="/DBLMetadata/copyright/statement/p[1]/br[1]" class="element">br</label>
+                        </div>
+                      </div>
+                      <div name="m.strong" style="display: none" class="choice_content">
+                        <div name="/DBLMetadata/copyright/statement/p[1]/strong[1]" class="element">
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <label for="/DBLMetadata/copyright/statement/p[1]/strong[1]" class="element">strong</label>
+                          <textarea name="/DBLMetadata/copyright/statement/p[1]/strong[1]/text()" class="text" cols="90" rows="6"></textarea>
+                        </div>
+                      </div>
+                      <div name="m.b" style="display: none" class="choice_content">
+                        <div name="/DBLMetadata/copyright/statement/p[1]/b[1]" class="element">
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <label for="/DBLMetadata/copyright/statement/p[1]/b[1]" class="element">b</label>
+                          <textarea name="/DBLMetadata/copyright/statement/p[1]/b[1]/text()" class="text" cols="90" rows="6"></textarea>
+                        </div>
+                      </div>
+                      <div name="m.em" style="display: none" class="choice_content">
+                        <div name="/DBLMetadata/copyright/statement/p[1]/em[1]" class="element">
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <label for="/DBLMetadata/copyright/statement/p[1]/em[1]" class="element">em</label>
+                          <textarea name="/DBLMetadata/copyright/statement/p[1]/em[1]/text()" class="text" cols="90" rows="6"></textarea>
+                        </div>
+                      </div>
+                      <div name="m.i" style="display: none" class="choice_content">
+                        <div name="/DBLMetadata/copyright/statement/p[1]/i[1]" class="element">
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <label for="/DBLMetadata/copyright/statement/p[1]/i[1]" class="element">i</label>
+                          <textarea name="/DBLMetadata/copyright/statement/p[1]/i[1]/text()" class="text" cols="90" rows="6"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div name="m.h1" style="display: none" class="choice_content">
+                <div name="/DBLMetadata/copyright/statement/h1[1]" class="element">
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <label for="/DBLMetadata/copyright/statement/h1[1]" class="element">h1</label>
+                  <textarea name="/DBLMetadata/copyright/statement/h1[1]/text()" class="text" cols="90" rows="6"></textarea>
+                </div>
+              </div>
+              <div name="m.h2" style="display: none" class="choice_content">
+                <div name="/DBLMetadata/copyright/statement/h2[1]" class="element">
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <label for="/DBLMetadata/copyright/statement/h2[1]" class="element">h2</label>
+                  <textarea name="/DBLMetadata/copyright/statement/h2[1]/text()" class="text" cols="90" rows="6"></textarea>
+                </div>
+              </div>
+              <div name="m.h3" style="display: none" class="choice_content">
+                <div name="/DBLMetadata/copyright/statement/h3[1]" class="element">
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <label for="/DBLMetadata/copyright/statement/h3[1]" class="element">h3</label>
+                  <textarea name="/DBLMetadata/copyright/statement/h3[1]/text()" class="text" cols="90" rows="6"></textarea>
+                </div>
+              </div>
+              <div name="m.ul" style="display: none" class="choice_content">
+                <div name="/DBLMetadata/copyright/statement/ul[1]" class="element">
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <label for="/DBLMetadata/copyright/statement/ul[1]" class="element">ul</label>
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <input type="button" value="+" onclick="addOne(this)" name="/DBLMetadata/copyright/statement/ul[1]" nbelmtsadded="1" class="addButton" />
+                  <input type="button" value="-" onclick="removeOne(this)" name="/DBLMetadata/copyright/statement/ul[1]" class="rmvButton" />
+                  <div class="multiple" style="border: dashed; border-width: 1px">
+                    <div name="/DBLMetadata/copyright/statement/ul[1]/li[1]" class="element">
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <label for="/DBLMetadata/copyright/statement/ul[1]/li[1]" class="element">li</label>
+                      <textarea name="/DBLMetadata/copyright/statement/ul[1]/li[1]/text()" class="text" cols="90" rows="6"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div name="m.ol" style="display: none" class="choice_content">
+                <div name="/DBLMetadata/copyright/statement/ol[1]" class="element">
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <label for="/DBLMetadata/copyright/statement/ol[1]" class="element">ol</label>
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <input type="button" value="+" onclick="addOne(this)" name="/DBLMetadata/copyright/statement/ol[1]" nbelmtsadded="1" class="addButton" />
+                  <input type="button" value="-" onclick="removeOne(this)" name="/DBLMetadata/copyright/statement/ol[1]" class="rmvButton" />
+                  <div class="multiple" style="border: dashed; border-width: 1px">
+                    <div name="/DBLMetadata/copyright/statement/ol[1]/li[1]" class="element">
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <label for="/DBLMetadata/copyright/statement/ol[1]/li[1]" class="element">li</label>
+                      <textarea name="/DBLMetadata/copyright/statement/ol[1]/li[1]/text()" class="text" cols="90" rows="6"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div name="m.blockquote" style="display: none" class="choice_content">
+                <div name="/DBLMetadata/copyright/statement/blockquote[1]" class="element">
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <label for="/DBLMetadata/copyright/statement/blockquote[1]" class="element">blockquote</label>
+                  <textarea name="/DBLMetadata/copyright/statement/blockquote[1]/text()" class="text" cols="90" rows="6"></textarea>
+                </div>
+              </div>
+              <div name="m.htmlCharMarkup" style="display: none" class="choice_content">
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <select style="height: 20px" onchange="showOptionContent(this)" name="/DBLMetadata/copyright/statement[]" class="choice">
+                  <option value="text 1" name="/DBLMetadata/copyright/statement[]" class="choice_option">text 1</option>
+                  <option value="m.a" name="/DBLMetadata/copyright/statement[]/m.a" class="choice_option">m.a</option>
+                  <option value="m.img" name="/DBLMetadata/copyright/statement[]/m.img" class="choice_option">m.img</option>
+                  <option value="m.br" name="/DBLMetadata/copyright/statement[]/m.br" class="choice_option">m.br</option>
+                  <option value="m.strong" name="/DBLMetadata/copyright/statement[]/m.strong" class="choice_option">m.strong</option>
+                  <option value="m.b" name="/DBLMetadata/copyright/statement[]/m.b" class="choice_option">m.b</option>
+                  <option value="m.em" name="/DBLMetadata/copyright/statement[]/m.em" class="choice_option">m.em</option>
+                  <option value="m.i" name="/DBLMetadata/copyright/statement[]/m.i" class="choice_option">m.i</option>
+                </select>
+                <div name="text 1" style="display: none" class="choice_content">
+                  <textarea name="/DBLMetadata/copyright/statement[]/text()" class="text" cols="90" rows="6"></textarea>
+                </div>
+                <div name="m.a" style="display: none" class="choice_content">
+                  <div name="/DBLMetadata/copyright/statement/a[1]" class="element">
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <label for="/DBLMetadata/copyright/statement/a[1]" class="element">a</label>
+                    <div class="attribute">
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <label for="/DBLMetadata/copyright/statement/a[1]/@href" class="attribute"> href : </label>
+                      <input type="file" name="/DBLMetadata/copyright/statement/a[1]/@href" class="file" />
+                    </div>
+                    <input type="button" value="add a m.htmlCharMarkup" name="/DBLMetadata/copyright/statement/a[1]" cyclic="/m.DBLMetadata/m.copyright/m.statement/m.htmlMarkup/m.htmlCharMarkup/m.a/m.htmlCharMarkup" cyclic_place="/m.DBLMetadata/m.copyright/m.statement/m.htmlMarkup/m.htmlCharMarkup/m.a/m.htmlCharMarkup/m.a" onclick="addCyclic(this)" />
+                    <div class="cyclic" refs="/m.DBLMetadata/m.copyright/m.statement/m.htmlMarkup/m.htmlCharMarkup/m.a/m.htmlCharMarkup" style="display: none">
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <select style="height: 20px" onchange="showOptionContent(this)" name="/DBLMetadata/copyright/statement/a[1]" class="choice">
+                        <option value="text 1" name="/DBLMetadata/copyright/statement/a[1]" class="choice_option">text 1</option>
+                        <option value="m.a" name="/DBLMetadata/copyright/statement/a[1]/m.a" class="choice_option">m.a</option>
+                        <option value="m.img" name="/DBLMetadata/copyright/statement/a[1]/m.img" class="choice_option">m.img</option>
+                        <option value="m.br" name="/DBLMetadata/copyright/statement/a[1]/m.br" class="choice_option">m.br</option>
+                        <option value="m.strong" name="/DBLMetadata/copyright/statement/a[1]/m.strong" class="choice_option">m.strong</option>
+                        <option value="m.b" name="/DBLMetadata/copyright/statement/a[1]/m.b" class="choice_option">m.b</option>
+                        <option value="m.em" name="/DBLMetadata/copyright/statement/a[1]/m.em" class="choice_option">m.em</option>
+                        <option value="m.i" name="/DBLMetadata/copyright/statement/a[1]/m.i" class="choice_option">m.i</option>
+                      </select>
+                      <div name="text 1" style="display: none" class="choice_content">
+                        <textarea name="/DBLMetadata/copyright/statement/a[1]/text()" class="text" cols="90" rows="6"></textarea>
+                      </div>
+                      <div name="m.a" style="display: none" class="choice_content">
+                        <input type="button" value="add a m.a" name="/DBLMetadata/copyright/statement/a[1]" cyclic="/m.DBLMetadata/m.copyright/m.statement/m.htmlMarkup/m.htmlCharMarkup/m.a/m.htmlCharMarkup/m.a" cyclic_place="/m.DBLMetadata/m.copyright/m.statement/m.htmlMarkup/m.htmlCharMarkup/m.a/m.htmlCharMarkup/m.a/m.htmlCharMarkup" onclick="addCyclic(this)" />
+                        <div class="cyclic" refs="/m.DBLMetadata/m.copyright/m.statement/m.htmlMarkup/m.htmlCharMarkup/m.a/m.htmlCharMarkup/m.a" style="display: none">
+                          <div name="/DBLMetadata/copyright/statement/a[1]/a" class="element">
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <label for="/DBLMetadata/copyright/statement/a[1]/a" class="element">a</label>
+                          </div>
+                        </div>
+                      </div>
+                      <div name="m.img" style="display: none" class="choice_content">
+                        <div name="/DBLMetadata/copyright/statement/a[1]/img" class="element">
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <label for="/DBLMetadata/copyright/statement/a[1]/img" class="element">img</label>
+                          <textarea name="/DBLMetadata/copyright/statement/a[1]/img/text()" class="text" cols="90" rows="6"></textarea>
+                        </div>
+                      </div>
+                      <div name="m.br" style="display: none" class="choice_content">
+                        <div name="/DBLMetadata/copyright/statement/a[1]/br" class="element">
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <label for="/DBLMetadata/copyright/statement/a[1]/br" class="element">br</label>
+                        </div>
+                      </div>
+                      <div name="m.strong" style="display: none" class="choice_content">
+                        <div name="/DBLMetadata/copyright/statement/a[1]/strong" class="element">
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <label for="/DBLMetadata/copyright/statement/a[1]/strong" class="element">strong</label>
+                          <textarea name="/DBLMetadata/copyright/statement/a[1]/strong/text()" class="text" cols="90" rows="6"></textarea>
+                        </div>
+                      </div>
+                      <div name="m.b" style="display: none" class="choice_content">
+                        <div name="/DBLMetadata/copyright/statement/a[1]/b" class="element">
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <label for="/DBLMetadata/copyright/statement/a[1]/b" class="element">b</label>
+                          <textarea name="/DBLMetadata/copyright/statement/a[1]/b/text()" class="text" cols="90" rows="6"></textarea>
+                        </div>
+                      </div>
+                      <div name="m.em" style="display: none" class="choice_content">
+                        <div name="/DBLMetadata/copyright/statement/a[1]/em" class="element">
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <label for="/DBLMetadata/copyright/statement/a[1]/em" class="element">em</label>
+                          <textarea name="/DBLMetadata/copyright/statement/a[1]/em/text()" class="text" cols="90" rows="6"></textarea>
+                        </div>
+                      </div>
+                      <div name="m.i" style="display: none" class="choice_content">
+                        <div name="/DBLMetadata/copyright/statement/a[1]/i" class="element">
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <label for="/DBLMetadata/copyright/statement/a[1]/i" class="element">i</label>
+                          <textarea name="/DBLMetadata/copyright/statement/a[1]/i/text()" class="text" cols="90" rows="6"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div name="m.img" style="display: none" class="choice_content">
+                  <div name="/DBLMetadata/copyright/statement/img[1]" class="element">
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <label for="/DBLMetadata/copyright/statement/img[1]" class="element">img</label>
+                    <div class="attribute">
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <label for="/DBLMetadata/copyright/statement/img[1]/@src" class="attribute"> src : </label>
+                      <input type="file" name="/DBLMetadata/copyright/statement/img[1]/@src" class="file" />
+                    </div>
+                    <div class="optional">
+                      <div class="attribute">
+                        <span class="indent">    </span>
+                        <span class="indent">    </span>
+                        <span class="indent">    </span>
+                        <span class="indent">    </span>
+                        <label for="/DBLMetadata/copyright/statement/img[1]/@alt" class="attribute"> alt : </label>
+                        <input type="text" name="/DBLMetadata/copyright/statement/img[1]/@alt" class="data" />
+                      </div>
+                    </div>
+                    <textarea name="/DBLMetadata/copyright/statement/img[1]/text()" class="text" cols="90" rows="6"></textarea>
+                  </div>
+                </div>
+                <div name="m.br" style="display: none" class="choice_content">
+                  <div name="/DBLMetadata/copyright/statement/br[1]" class="element">
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <label for="/DBLMetadata/copyright/statement/br[1]" class="element">br</label>
+                  </div>
+                </div>
+                <div name="m.strong" style="display: none" class="choice_content">
+                  <div name="/DBLMetadata/copyright/statement/strong[1]" class="element">
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <label for="/DBLMetadata/copyright/statement/strong[1]" class="element">strong</label>
+                    <textarea name="/DBLMetadata/copyright/statement/strong[1]/text()" class="text" cols="90" rows="6"></textarea>
+                  </div>
+                </div>
+                <div name="m.b" style="display: none" class="choice_content">
+                  <div name="/DBLMetadata/copyright/statement/b[1]" class="element">
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <label for="/DBLMetadata/copyright/statement/b[1]" class="element">b</label>
+                    <textarea name="/DBLMetadata/copyright/statement/b[1]/text()" class="text" cols="90" rows="6"></textarea>
+                  </div>
+                </div>
+                <div name="m.em" style="display: none" class="choice_content">
+                  <div name="/DBLMetadata/copyright/statement/em[1]" class="element">
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <label for="/DBLMetadata/copyright/statement/em[1]" class="element">em</label>
+                    <textarea name="/DBLMetadata/copyright/statement/em[1]/text()" class="text" cols="90" rows="6"></textarea>
+                  </div>
+                </div>
+                <div name="m.i" style="display: none" class="choice_content">
+                  <div name="/DBLMetadata/copyright/statement/i[1]" class="element">
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <label for="/DBLMetadata/copyright/statement/i[1]" class="element">i</label>
+                    <textarea name="/DBLMetadata/copyright/statement/i[1]/text()" class="text" cols="90" rows="6"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="optional">
+          <div name="/DBLMetadata/promotion" class="element">
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/promotion" class="element">promotion</label>
+            <div name="/DBLMetadata/promotion/promoVersionInfo" class="element">
+              <span class="indent">    </span>
+              <span class="indent">    </span>
+              <label for="/DBLMetadata/promotion/promoVersionInfo" class="element">promoVersionInfo</label>
+              <div class="documentation">DCMI: description/pubPromoVersionInfo</div>
+              <div class="attribute">
+                <span class="indent">    </span><span class="indent">    </span><span class="indent">    </span><label for="/DBLMetadata/promotion/promoVersionInfo/@contentType" class="attribute"> contentType : </label>xhtml
+              </div>
+              <span class="indent">    </span>
+              <span class="indent">    </span>
+              <span class="indent">    </span>
+              <input type="button" value="+" onclick="addOne(this)" name="/DBLMetadata/promotion/promoVersionInfo" nbelmtsadded="1" class="addButton" />
+              <input type="button" value="-" onclick="removeOne(this)" name="/DBLMetadata/promotion/promoVersionInfo" class="rmvButton" />
+              <div class="multiple" style="border: dashed; border-width: 1px">
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <span class="indent">    </span>
+                <select style="height: 20px" onchange="showOptionContent(this)" name="/DBLMetadata/promotion/promoVersionInfo[]" class="choice">
+                  <option value="m.p" name="/DBLMetadata/promotion/promoVersionInfo[]/m.p" class="choice_option">m.p</option>
+                  <option value="m.h1" name="/DBLMetadata/promotion/promoVersionInfo[]/m.h1" class="choice_option">m.h1</option>
+                  <option value="m.h2" name="/DBLMetadata/promotion/promoVersionInfo[]/m.h2" class="choice_option">m.h2</option>
+                  <option value="m.h3" name="/DBLMetadata/promotion/promoVersionInfo[]/m.h3" class="choice_option">m.h3</option>
+                  <option value="m.ul" name="/DBLMetadata/promotion/promoVersionInfo[]/m.ul" class="choice_option">m.ul</option>
+                  <option value="m.ol" name="/DBLMetadata/promotion/promoVersionInfo[]/m.ol" class="choice_option">m.ol</option>
+                  <option value="m.blockquote" name="/DBLMetadata/promotion/promoVersionInfo[]/m.blockquote" class="choice_option">m.blockquote</option>
+                  <option value="m.htmlCharMarkup" name="/DBLMetadata/promotion/promoVersionInfo[]/m.htmlCharMarkup" class="choice_option">m.htmlCharMarkup</option>
+                </select>
+                <div name="m.p" style="display: none" class="choice_content">
+                  <div name="/DBLMetadata/promotion/promoVersionInfo/p[1]" class="element">
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <label for="/DBLMetadata/promotion/promoVersionInfo/p[1]" class="element">p</label>
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <input type="button" value="+" onclick="addOne(this)" name="/DBLMetadata/promotion/promoVersionInfo/p[1]" nbelmtsadded="1" class="addButton" />
+                    <input type="button" value="-" onclick="removeOne(this)" name="/DBLMetadata/promotion/promoVersionInfo/p[1]" class="rmvButton" />
+                    <div class="multiple" style="border: dashed; border-width: 1px">
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <select style="height: 20px" onchange="showOptionContent(this)" name="/DBLMetadata/promotion/promoVersionInfo/p[1][]" class="choice">
+                        <option value="text 1" name="/DBLMetadata/promotion/promoVersionInfo/p[1][]" class="choice_option">text 1</option>
+                        <option value="m.htmlCharMarkup" name="/DBLMetadata/promotion/promoVersionInfo/p[1][]/m.htmlCharMarkup" class="choice_option">m.htmlCharMarkup</option>
+                      </select>
+                      <div name="text 1" style="display: none" class="choice_content">
+                        <textarea name="/DBLMetadata/promotion/promoVersionInfo/p[1][]/text()" class="text" cols="90" rows="6"></textarea>
+                      </div>
+                      <div name="m.htmlCharMarkup" style="display: none" class="choice_content">
+                        <span class="indent">    </span>
+                        <span class="indent">    </span>
+                        <span class="indent">    </span>
+                        <span class="indent">    </span>
+                        <select style="height: 20px" onchange="showOptionContent(this)" name="/DBLMetadata/promotion/promoVersionInfo/p[1][]" class="choice">
+                          <option value="text 1" name="/DBLMetadata/promotion/promoVersionInfo/p[1][]" class="choice_option">text 1</option>
+                          <option value="m.a" name="/DBLMetadata/promotion/promoVersionInfo/p[1][]/m.a" class="choice_option">m.a</option>
+                          <option value="m.img" name="/DBLMetadata/promotion/promoVersionInfo/p[1][]/m.img" class="choice_option">m.img</option>
+                          <option value="m.br" name="/DBLMetadata/promotion/promoVersionInfo/p[1][]/m.br" class="choice_option">m.br</option>
+                          <option value="m.strong" name="/DBLMetadata/promotion/promoVersionInfo/p[1][]/m.strong" class="choice_option">m.strong</option>
+                          <option value="m.b" name="/DBLMetadata/promotion/promoVersionInfo/p[1][]/m.b" class="choice_option">m.b</option>
+                          <option value="m.em" name="/DBLMetadata/promotion/promoVersionInfo/p[1][]/m.em" class="choice_option">m.em</option>
+                          <option value="m.i" name="/DBLMetadata/promotion/promoVersionInfo/p[1][]/m.i" class="choice_option">m.i</option>
+                        </select>
+                        <div name="text 1" style="display: none" class="choice_content">
+                          <textarea name="/DBLMetadata/promotion/promoVersionInfo/p[1][]/text()" class="text" cols="90" rows="6"></textarea>
+                        </div>
+                        <div name="m.a" style="display: none" class="choice_content">
+                          <div name="/DBLMetadata/promotion/promoVersionInfo/p[1]/a[1]" class="element">
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <label for="/DBLMetadata/promotion/promoVersionInfo/p[1]/a[1]" class="element">a</label>
+                            <input type="button" value="add a m.htmlCharMarkup" name="/DBLMetadata/promotion/promoVersionInfo/p[1]/a[1]" cyclic="/m.DBLMetadata/m.promotion/m.promoVersionInfo/m.htmlMarkup/m.p/m.htmlCharMarkup/m.a/m.htmlCharMarkup" cyclic_place="/m.DBLMetadata/m.promotion/m.promoVersionInfo/m.htmlMarkup/m.p/m.htmlCharMarkup/m.a/m.htmlCharMarkup/m.a" onclick="addCyclic(this)" />
+                            <div class="cyclic" refs="/m.DBLMetadata/m.promotion/m.promoVersionInfo/m.htmlMarkup/m.p/m.htmlCharMarkup/m.a/m.htmlCharMarkup" style="display: none">
+                              <span class="indent">    </span>
+                              <span class="indent">    </span>
+                              <span class="indent">    </span>
+                              <span class="indent">    </span>
+                              <span class="indent">    </span>
+                              <select style="height: 20px" onchange="showOptionContent(this)" name="/DBLMetadata/promotion/promoVersionInfo/p[1]/a[1]" class="choice">
+                                <option value="text 1" name="/DBLMetadata/promotion/promoVersionInfo/p[1]/a[1]" class="choice_option">text 1</option>
+                                <option value="m.a" name="/DBLMetadata/promotion/promoVersionInfo/p[1]/a[1]/m.a" class="choice_option">m.a</option>
+                                <option value="m.img" name="/DBLMetadata/promotion/promoVersionInfo/p[1]/a[1]/m.img" class="choice_option">m.img</option>
+                                <option value="m.br" name="/DBLMetadata/promotion/promoVersionInfo/p[1]/a[1]/m.br" class="choice_option">m.br</option>
+                                <option value="m.strong" name="/DBLMetadata/promotion/promoVersionInfo/p[1]/a[1]/m.strong" class="choice_option">m.strong</option>
+                                <option value="m.b" name="/DBLMetadata/promotion/promoVersionInfo/p[1]/a[1]/m.b" class="choice_option">m.b</option>
+                                <option value="m.em" name="/DBLMetadata/promotion/promoVersionInfo/p[1]/a[1]/m.em" class="choice_option">m.em</option>
+                                <option value="m.i" name="/DBLMetadata/promotion/promoVersionInfo/p[1]/a[1]/m.i" class="choice_option">m.i</option>
+                              </select>
+                              <div name="text 1" style="display: none" class="choice_content">
+                                <textarea name="/DBLMetadata/promotion/promoVersionInfo/p[1]/a[1]/text()" class="text" cols="90" rows="6"></textarea>
+                              </div>
+                              <div name="m.a" style="display: none" class="choice_content"></div>
+                              <div name="m.img" style="display: none" class="choice_content"></div>
+                              <div name="m.br" style="display: none" class="choice_content"></div>
+                              <div name="m.strong" style="display: none" class="choice_content"></div>
+                              <div name="m.b" style="display: none" class="choice_content"></div>
+                              <div name="m.em" style="display: none" class="choice_content"></div>
+                              <div name="m.i" style="display: none" class="choice_content"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div name="m.img" style="display: none" class="choice_content">
+                          <div name="/DBLMetadata/promotion/promoVersionInfo/p[1]/img[1]" class="element">
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <label for="/DBLMetadata/promotion/promoVersionInfo/p[1]/img[1]" class="element">img</label>
+                            <div class="optional"></div>
+                            <textarea name="/DBLMetadata/promotion/promoVersionInfo/p[1]/img[1]/text()" class="text" cols="90" rows="6"></textarea>
+                          </div>
+                        </div>
+                        <div name="m.br" style="display: none" class="choice_content">
+                          <div name="/DBLMetadata/promotion/promoVersionInfo/p[1]/br[1]" class="element">
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <label for="/DBLMetadata/promotion/promoVersionInfo/p[1]/br[1]" class="element">br</label>
+                          </div>
+                        </div>
+                        <div name="m.strong" style="display: none" class="choice_content">
+                          <div name="/DBLMetadata/promotion/promoVersionInfo/p[1]/strong[1]" class="element">
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <label for="/DBLMetadata/promotion/promoVersionInfo/p[1]/strong[1]" class="element">strong</label>
+                            <textarea name="/DBLMetadata/promotion/promoVersionInfo/p[1]/strong[1]/text()" class="text" cols="90" rows="6"></textarea>
+                          </div>
+                        </div>
+                        <div name="m.b" style="display: none" class="choice_content">
+                          <div name="/DBLMetadata/promotion/promoVersionInfo/p[1]/b[1]" class="element">
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <label for="/DBLMetadata/promotion/promoVersionInfo/p[1]/b[1]" class="element">b</label>
+                            <textarea name="/DBLMetadata/promotion/promoVersionInfo/p[1]/b[1]/text()" class="text" cols="90" rows="6"></textarea>
+                          </div>
+                        </div>
+                        <div name="m.em" style="display: none" class="choice_content">
+                          <div name="/DBLMetadata/promotion/promoVersionInfo/p[1]/em[1]" class="element">
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <label for="/DBLMetadata/promotion/promoVersionInfo/p[1]/em[1]" class="element">em</label>
+                            <textarea name="/DBLMetadata/promotion/promoVersionInfo/p[1]/em[1]/text()" class="text" cols="90" rows="6"></textarea>
+                          </div>
+                        </div>
+                        <div name="m.i" style="display: none" class="choice_content">
+                          <div name="/DBLMetadata/promotion/promoVersionInfo/p[1]/i[1]" class="element">
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <label for="/DBLMetadata/promotion/promoVersionInfo/p[1]/i[1]" class="element">i</label>
+                            <textarea name="/DBLMetadata/promotion/promoVersionInfo/p[1]/i[1]/text()" class="text" cols="90" rows="6"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div name="m.h1" style="display: none" class="choice_content">
+                  <div name="/DBLMetadata/promotion/promoVersionInfo/h1[1]" class="element">
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <label for="/DBLMetadata/promotion/promoVersionInfo/h1[1]" class="element">h1</label>
+                    <textarea name="/DBLMetadata/promotion/promoVersionInfo/h1[1]/text()" class="text" cols="90" rows="6"></textarea>
+                  </div>
+                </div>
+                <div name="m.h2" style="display: none" class="choice_content">
+                  <div name="/DBLMetadata/promotion/promoVersionInfo/h2[1]" class="element">
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <label for="/DBLMetadata/promotion/promoVersionInfo/h2[1]" class="element">h2</label>
+                    <textarea name="/DBLMetadata/promotion/promoVersionInfo/h2[1]/text()" class="text" cols="90" rows="6"></textarea>
+                  </div>
+                </div>
+                <div name="m.h3" style="display: none" class="choice_content">
+                  <div name="/DBLMetadata/promotion/promoVersionInfo/h3[1]" class="element">
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <label for="/DBLMetadata/promotion/promoVersionInfo/h3[1]" class="element">h3</label>
+                    <textarea name="/DBLMetadata/promotion/promoVersionInfo/h3[1]/text()" class="text" cols="90" rows="6"></textarea>
+                  </div>
+                </div>
+                <div name="m.ul" style="display: none" class="choice_content">
+                  <div name="/DBLMetadata/promotion/promoVersionInfo/ul[1]" class="element">
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <label for="/DBLMetadata/promotion/promoVersionInfo/ul[1]" class="element">ul</label>
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <input type="button" value="+" onclick="addOne(this)" name="/DBLMetadata/promotion/promoVersionInfo/ul[1]" nbelmtsadded="1" class="addButton" />
+                    <input type="button" value="-" onclick="removeOne(this)" name="/DBLMetadata/promotion/promoVersionInfo/ul[1]" class="rmvButton" />
+                    <div class="multiple" style="border: dashed; border-width: 1px">
+                      <div name="/DBLMetadata/promotion/promoVersionInfo/ul[1]/li[1]" class="element">
+                        <span class="indent">    </span>
+                        <span class="indent">    </span>
+                        <span class="indent">    </span>
+                        <span class="indent">    </span>
+                        <label for="/DBLMetadata/promotion/promoVersionInfo/ul[1]/li[1]" class="element">li</label>
+                        <textarea name="/DBLMetadata/promotion/promoVersionInfo/ul[1]/li[1]/text()" class="text" cols="90" rows="6"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div name="m.ol" style="display: none" class="choice_content">
+                  <div name="/DBLMetadata/promotion/promoVersionInfo/ol[1]" class="element">
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <label for="/DBLMetadata/promotion/promoVersionInfo/ol[1]" class="element">ol</label>
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <input type="button" value="+" onclick="addOne(this)" name="/DBLMetadata/promotion/promoVersionInfo/ol[1]" nbelmtsadded="1" class="addButton" />
+                    <input type="button" value="-" onclick="removeOne(this)" name="/DBLMetadata/promotion/promoVersionInfo/ol[1]" class="rmvButton" />
+                    <div class="multiple" style="border: dashed; border-width: 1px">
+                      <div name="/DBLMetadata/promotion/promoVersionInfo/ol[1]/li[1]" class="element">
+                        <span class="indent">    </span>
+                        <span class="indent">    </span>
+                        <span class="indent">    </span>
+                        <span class="indent">    </span>
+                        <label for="/DBLMetadata/promotion/promoVersionInfo/ol[1]/li[1]" class="element">li</label>
+                        <textarea name="/DBLMetadata/promotion/promoVersionInfo/ol[1]/li[1]/text()" class="text" cols="90" rows="6"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div name="m.blockquote" style="display: none" class="choice_content">
+                  <div name="/DBLMetadata/promotion/promoVersionInfo/blockquote[1]" class="element">
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <span class="indent">    </span>
+                    <label for="/DBLMetadata/promotion/promoVersionInfo/blockquote[1]" class="element">blockquote</label>
+                    <textarea name="/DBLMetadata/promotion/promoVersionInfo/blockquote[1]/text()" class="text" cols="90" rows="6"></textarea>
+                  </div>
+                </div>
+                <div name="m.htmlCharMarkup" style="display: none" class="choice_content">
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <span class="indent">    </span>
+                  <select style="height: 20px" onchange="showOptionContent(this)" name="/DBLMetadata/promotion/promoVersionInfo[]" class="choice">
+                    <option value="text 1" name="/DBLMetadata/promotion/promoVersionInfo[]" class="choice_option">text 1</option>
+                    <option value="m.a" name="/DBLMetadata/promotion/promoVersionInfo[]/m.a" class="choice_option">m.a</option>
+                    <option value="m.img" name="/DBLMetadata/promotion/promoVersionInfo[]/m.img" class="choice_option">m.img</option>
+                    <option value="m.br" name="/DBLMetadata/promotion/promoVersionInfo[]/m.br" class="choice_option">m.br</option>
+                    <option value="m.strong" name="/DBLMetadata/promotion/promoVersionInfo[]/m.strong" class="choice_option">m.strong</option>
+                    <option value="m.b" name="/DBLMetadata/promotion/promoVersionInfo[]/m.b" class="choice_option">m.b</option>
+                    <option value="m.em" name="/DBLMetadata/promotion/promoVersionInfo[]/m.em" class="choice_option">m.em</option>
+                    <option value="m.i" name="/DBLMetadata/promotion/promoVersionInfo[]/m.i" class="choice_option">m.i</option>
+                  </select>
+                  <div name="text 1" style="display: none" class="choice_content">
+                    <textarea name="/DBLMetadata/promotion/promoVersionInfo[]/text()" class="text" cols="90" rows="6"></textarea>
+                  </div>
+                  <div name="m.a" style="display: none" class="choice_content">
+                    <div name="/DBLMetadata/promotion/promoVersionInfo/a[1]" class="element">
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <label for="/DBLMetadata/promotion/promoVersionInfo/a[1]" class="element">a</label>
+                      <div class="attribute">
+                        <span class="indent">    </span>
+                        <span class="indent">    </span>
+                        <span class="indent">    </span>
+                        <span class="indent">    </span>
+                        <label for="/DBLMetadata/promotion/promoVersionInfo/a[1]/@href" class="attribute"> href : </label>
+                        <input type="file" name="/DBLMetadata/promotion/promoVersionInfo/a[1]/@href" class="file" />
+                      </div>
+                      <input type="button" value="add a m.htmlCharMarkup" name="/DBLMetadata/promotion/promoVersionInfo/a[1]" cyclic="/m.DBLMetadata/m.promotion/m.promoVersionInfo/m.htmlMarkup/m.htmlCharMarkup/m.a/m.htmlCharMarkup" cyclic_place="/m.DBLMetadata/m.promotion/m.promoVersionInfo/m.htmlMarkup/m.htmlCharMarkup/m.a/m.htmlCharMarkup/m.a" onclick="addCyclic(this)" />
+                      <div class="cyclic" refs="/m.DBLMetadata/m.promotion/m.promoVersionInfo/m.htmlMarkup/m.htmlCharMarkup/m.a/m.htmlCharMarkup" style="display: none">
+                        <span class="indent">    </span>
+                        <span class="indent">    </span>
+                        <span class="indent">    </span>
+                        <span class="indent">    </span>
+                        <select style="height: 20px" onchange="showOptionContent(this)" name="/DBLMetadata/promotion/promoVersionInfo/a[1]" class="choice">
+                          <option value="text 1" name="/DBLMetadata/promotion/promoVersionInfo/a[1]" class="choice_option">text 1</option>
+                          <option value="m.a" name="/DBLMetadata/promotion/promoVersionInfo/a[1]/m.a" class="choice_option">m.a</option>
+                          <option value="m.img" name="/DBLMetadata/promotion/promoVersionInfo/a[1]/m.img" class="choice_option">m.img</option>
+                          <option value="m.br" name="/DBLMetadata/promotion/promoVersionInfo/a[1]/m.br" class="choice_option">m.br</option>
+                          <option value="m.strong" name="/DBLMetadata/promotion/promoVersionInfo/a[1]/m.strong" class="choice_option">m.strong</option>
+                          <option value="m.b" name="/DBLMetadata/promotion/promoVersionInfo/a[1]/m.b" class="choice_option">m.b</option>
+                          <option value="m.em" name="/DBLMetadata/promotion/promoVersionInfo/a[1]/m.em" class="choice_option">m.em</option>
+                          <option value="m.i" name="/DBLMetadata/promotion/promoVersionInfo/a[1]/m.i" class="choice_option">m.i</option>
+                        </select>
+                        <div name="text 1" style="display: none" class="choice_content">
+                          <textarea name="/DBLMetadata/promotion/promoVersionInfo/a[1]/text()" class="text" cols="90" rows="6"></textarea>
+                        </div>
+                        <div name="m.a" style="display: none" class="choice_content">
+                          <input type="button" value="add a m.a" name="/DBLMetadata/promotion/promoVersionInfo/a[1]" cyclic="/m.DBLMetadata/m.promotion/m.promoVersionInfo/m.htmlMarkup/m.htmlCharMarkup/m.a/m.htmlCharMarkup/m.a" cyclic_place="/m.DBLMetadata/m.promotion/m.promoVersionInfo/m.htmlMarkup/m.htmlCharMarkup/m.a/m.htmlCharMarkup/m.a/m.htmlCharMarkup" onclick="addCyclic(this)" />
+                          <div class="cyclic" refs="/m.DBLMetadata/m.promotion/m.promoVersionInfo/m.htmlMarkup/m.htmlCharMarkup/m.a/m.htmlCharMarkup/m.a" style="display: none">
+                            <div name="/DBLMetadata/promotion/promoVersionInfo/a[1]/a" class="element">
+                              <span class="indent">    </span>
+                              <span class="indent">    </span>
+                              <span class="indent">    </span>
+                              <span class="indent">    </span>
+                              <label for="/DBLMetadata/promotion/promoVersionInfo/a[1]/a" class="element">a</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div name="m.img" style="display: none" class="choice_content">
+                          <div name="/DBLMetadata/promotion/promoVersionInfo/a[1]/img" class="element">
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <label for="/DBLMetadata/promotion/promoVersionInfo/a[1]/img" class="element">img</label>
+                            <textarea name="/DBLMetadata/promotion/promoVersionInfo/a[1]/img/text()" class="text" cols="90" rows="6"></textarea>
+                          </div>
+                        </div>
+                        <div name="m.br" style="display: none" class="choice_content">
+                          <div name="/DBLMetadata/promotion/promoVersionInfo/a[1]/br" class="element">
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <label for="/DBLMetadata/promotion/promoVersionInfo/a[1]/br" class="element">br</label>
+                          </div>
+                        </div>
+                        <div name="m.strong" style="display: none" class="choice_content">
+                          <div name="/DBLMetadata/promotion/promoVersionInfo/a[1]/strong" class="element">
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <label for="/DBLMetadata/promotion/promoVersionInfo/a[1]/strong" class="element">strong</label>
+                            <textarea name="/DBLMetadata/promotion/promoVersionInfo/a[1]/strong/text()" class="text" cols="90" rows="6"></textarea>
+                          </div>
+                        </div>
+                        <div name="m.b" style="display: none" class="choice_content">
+                          <div name="/DBLMetadata/promotion/promoVersionInfo/a[1]/b" class="element">
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <label for="/DBLMetadata/promotion/promoVersionInfo/a[1]/b" class="element">b</label>
+                            <textarea name="/DBLMetadata/promotion/promoVersionInfo/a[1]/b/text()" class="text" cols="90" rows="6"></textarea>
+                          </div>
+                        </div>
+                        <div name="m.em" style="display: none" class="choice_content">
+                          <div name="/DBLMetadata/promotion/promoVersionInfo/a[1]/em" class="element">
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <label for="/DBLMetadata/promotion/promoVersionInfo/a[1]/em" class="element">em</label>
+                            <textarea name="/DBLMetadata/promotion/promoVersionInfo/a[1]/em/text()" class="text" cols="90" rows="6"></textarea>
+                          </div>
+                        </div>
+                        <div name="m.i" style="display: none" class="choice_content">
+                          <div name="/DBLMetadata/promotion/promoVersionInfo/a[1]/i" class="element">
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <span class="indent">    </span>
+                            <label for="/DBLMetadata/promotion/promoVersionInfo/a[1]/i" class="element">i</label>
+                            <textarea name="/DBLMetadata/promotion/promoVersionInfo/a[1]/i/text()" class="text" cols="90" rows="6"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div name="m.img" style="display: none" class="choice_content">
+                    <div name="/DBLMetadata/promotion/promoVersionInfo/img[1]" class="element">
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <label for="/DBLMetadata/promotion/promoVersionInfo/img[1]" class="element">img</label>
+                      <div class="attribute">
+                        <span class="indent">    </span>
+                        <span class="indent">    </span>
+                        <span class="indent">    </span>
+                        <span class="indent">    </span>
+                        <label for="/DBLMetadata/promotion/promoVersionInfo/img[1]/@src" class="attribute"> src : </label>
+                        <input type="file" name="/DBLMetadata/promotion/promoVersionInfo/img[1]/@src" class="file" />
+                      </div>
+                      <div class="optional">
+                        <div class="attribute">
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <span class="indent">    </span>
+                          <label for="/DBLMetadata/promotion/promoVersionInfo/img[1]/@alt" class="attribute"> alt : </label>
+                          <input type="text" name="/DBLMetadata/promotion/promoVersionInfo/img[1]/@alt" class="data" />
+                        </div>
+                      </div>
+                      <textarea name="/DBLMetadata/promotion/promoVersionInfo/img[1]/text()" class="text" cols="90" rows="6"></textarea>
+                    </div>
+                  </div>
+                  <div name="m.br" style="display: none" class="choice_content">
+                    <div name="/DBLMetadata/promotion/promoVersionInfo/br[1]" class="element">
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <label for="/DBLMetadata/promotion/promoVersionInfo/br[1]" class="element">br</label>
+                    </div>
+                  </div>
+                  <div name="m.strong" style="display: none" class="choice_content">
+                    <div name="/DBLMetadata/promotion/promoVersionInfo/strong[1]" class="element">
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <label for="/DBLMetadata/promotion/promoVersionInfo/strong[1]" class="element">strong</label>
+                      <textarea name="/DBLMetadata/promotion/promoVersionInfo/strong[1]/text()" class="text" cols="90" rows="6"></textarea>
+                    </div>
+                  </div>
+                  <div name="m.b" style="display: none" class="choice_content">
+                    <div name="/DBLMetadata/promotion/promoVersionInfo/b[1]" class="element">
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <label for="/DBLMetadata/promotion/promoVersionInfo/b[1]" class="element">b</label>
+                      <textarea name="/DBLMetadata/promotion/promoVersionInfo/b[1]/text()" class="text" cols="90" rows="6"></textarea>
+                    </div>
+                  </div>
+                  <div name="m.em" style="display: none" class="choice_content">
+                    <div name="/DBLMetadata/promotion/promoVersionInfo/em[1]" class="element">
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <label for="/DBLMetadata/promotion/promoVersionInfo/em[1]" class="element">em</label>
+                      <textarea name="/DBLMetadata/promotion/promoVersionInfo/em[1]/text()" class="text" cols="90" rows="6"></textarea>
+                    </div>
+                  </div>
+                  <div name="m.i" style="display: none" class="choice_content">
+                    <div name="/DBLMetadata/promotion/promoVersionInfo/i[1]" class="element">
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <span class="indent">    </span>
+                      <label for="/DBLMetadata/promotion/promoVersionInfo/i[1]" class="element">i</label>
+                      <textarea name="/DBLMetadata/promotion/promoVersionInfo/i[1]/text()" class="text" cols="90" rows="6"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div name="/DBLMetadata/archiveStatus" class="element">
+          <span class="indent">    </span>
+          <label for="/DBLMetadata/archiveStatus" class="element">archiveStatus</label>
+          <div name="/DBLMetadata/archiveStatus/archivistName" class="element">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/archiveStatus/archivistName" class="element">archivistName</label>
+            <div class="documentation"> archivistName is overwritten by Paratext DCMI: contributor/archivist </div>
+            <input type="text" name="/DBLMetadata/archiveStatus/archivistName" class="data" />
+          </div>
+          <div name="/DBLMetadata/archiveStatus/dateArchived" class="element">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/archiveStatus/dateArchived" class="element">dateArchived</label>
+            <div class="documentation"> dateArchived is overwritten by Paratext DCMI: dateSubmitted (xsd:dateTime) </div>
+            <input type="text" name="/DBLMetadata/archiveStatus/dateArchived" class="data" />
+          </div>
+          <div name="/DBLMetadata/archiveStatus/dateUpdated" class="element">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/archiveStatus/dateUpdated" class="element">dateUpdated</label>
+            <div class="documentation"> dateUpdated is overwritten by Paratext DCMI: modified (xsd:dateTime) </div>
+            <input type="text" name="/DBLMetadata/archiveStatus/dateUpdated" class="data" />
+          </div>
+          <div name="/DBLMetadata/archiveStatus/comments" class="element">
+            <span class="indent">    </span>
+            <span class="indent">    </span>
+            <label for="/DBLMetadata/archiveStatus/comments" class="element">comments</label>
+            <div class="documentation">DCMI: abstract</div>
+            <input type="text" name="/DBLMetadata/archiveStatus/comments" class="data" />
+          </div>
+        </div>
+      </div>
+    </form>
+  </markup>
+</root>

@@ -1,0 +1,337 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:svg="http://www.w3.org/2000/svg">
+  <head>	
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1"/>
+    <meta name="author" content="Nicolas Debeissat"/>
+    <meta name="keywords" content="svg 3d svg3d xml xsd relaxng rng xsl xslt xpath xhtml html sax dom parser parse javascript ecmascript form data schema zbuffer z-buffer"/>
+    <meta name="description" content="Generation of XHTML forms from a RelaxNG specification"/>    
+    <meta name="robots" content="all"/>
+    <meta name="verify-v1" content="EoH40hkYQVbjboCxth9Wylyi0qH468WUDOuyiiCYi0A=" />
+	
+    <title>Form generation</title>
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css?version=03_05_15" />
+   
+
+
+  <script type="text/javascript" src="forms/js/extras.js"></script>
+  <script type="text/javascript" src="forms/js/applyXslt.js"></script>
+  <script type="text/javascript" src="forms/js/dom_utils.js"></script>
+  <script type="text/javascript" src="forms/js/form_initialization.js"></script>
+  <script type="text/javascript" src="forms/js/form_saving.js"></script>
+  <script type="text/javascript" src="forms/js/formFunctions.js"></script>
+  <script type="text/javascript" src="forms/js/manageWhiteSpace.js"></script>
+  <script type="text/javascript" src="forms/js/save_xml.js"></script>
+  <script type="text/javascript" src="sax/jssaxparser-1.1/sax.js?v=230709"></script>
+  <script type="text/javascript" src="sax/relaxng_validator.js"></script>
+  <script type="text/javascript" src="sax/validator_functions.js"></script>
+  <script type="text/javascript" src="sax/validator_objects.js"></script>
+  <script type="text/javascript" src="sax/datatype_library.js"></script>
+  
+  <script type="text/javascript">
+    function initMaxRefs() {
+        var chosenForm = getSelected("schema_select");
+        var maxRefs = document.getElementById("maxRefs");
+        if (chosenForm.match("docbook")) {
+            maxRefs.value = "4";
+        } else if (chosenForm.match("mathml2")) {
+            maxRefs.value = "7";
+        } else if (chosenForm.match("relaxCore")) {
+            maxRefs.value = "4";
+        }
+    }
+    
+    
+  	function getFormAndInit() {
+		document.getElementById("generate_wait").style.display = "";
+        var maxRefs = document.getElementById("maxRefs").value;
+		var chosenForm = getSelected("schema_select");
+		getForm(chosenForm, maxRefs);
+		getExamples(chosenForm);
+        document.getElementById("generate_wait").style.display = "none";
+	}
+	
+	function getExamples(chosenForm) {
+		var example_select = document.getElementById("example_select");
+		if (chosenForm.match("benchmark")) {
+			example_select.innerHTML = '<option value="forms/examples/benchmark/benchmark.xml">benchmark.xml</option>';
+		} else if (chosenForm.match("cellclass")) {
+			example_select.innerHTML = "";
+		} else if (chosenForm.match("FacetsML")) {
+			example_select.innerHTML = '<option value="forms/examples/FacetsML/FacetsML.xml">FacetsML.xml</option><option value="forms/examples/FacetsML/VAbenchmarks_COBA.xml">VAbenchmarks_COBA.xml</option>';
+		} else if (chosenForm.match("PAX")) {
+			example_select.innerHTML = '<option value="forms/examples/PAX/6nbn.xml">6nbn.xml</option>';
+		} else if (chosenForm.match("relaxng")) {
+			example_select.innerHTML = '<option value="forms/examples/relaxng/test_schema.rng">test_schema.rng</option>';
+		} else if (chosenForm.match("random")) {
+			example_select.innerHTML = "";
+		} else if (chosenForm.match("retinaSchema")) {
+			example_select.innerHTML = '<option value="forms/examples/retinaSchema/sampleRetina_cgc_spikes.xml">sampleRetina_cgc_spikes.xml</option>';
+		} else if (chosenForm.match("svg3d")) {
+			example_select.innerHTML = '<option value="forms/examples/svg3d/ball_3d.xml">ball_3d.xml</option><option value="forms/examples/svg3d/indigo_arc.xml">indigo_arc.xml</option><option value="forms/examples/svg3d/pyramide_3faces.xml">pyramide_3faces.xml</option><option value="forms/examples/svg3d/pyramide_4faces_rotating.xml">pyramide_4faces_rotating.xml</option>';
+		} else if (chosenForm.match("test_schema")) {
+		    example_select.innerHTML = '<option value="forms/examples/test_schema/test_schema.xml">test_schema.xml</option>';
+		} else if (chosenForm.match("metadata1-3")) {
+		    example_select.innerHTML = '<option value="forms/examples/test_schema/metadata13_full-noheader.xml">metadata13_full-noheader.xml</option>';
+		} else if (chosenForm.match("nitf-3-1")) {
+			example_select.innerHTML = '<option value="forms/examples/nitf-3-1/nitf.xml">nitf.xml</option>';
+		} else if (chosenForm.match("foo")) {
+			example_select.innerHTML = '<option value="forms/examples/foo/foo.xml">foo.xml</option>';
+		} else if (chosenForm.match("xslt")) {
+			example_select.innerHTML = '<option value="forms/examples/xslt/xslt_ex.xml">xslt_ex.xml</option>';
+		} else {
+			example_select.innerHTML = "";
+		}
+	}
+    
+    function validateXml(xmlId, schemaSelectId, resultId, sax_eventsId) {
+        var chosenForm = getSelected(schemaSelectId);
+        var rng = loadXMLDoc(chosenForm);
+        document.getElementById("validate_wait").style.display = "";
+        var xml = document.getElementById(xmlId).value;
+        var result = document.getElementById(resultId);
+        result.innerHTML = "";
+        var sax_events = document.getElementById(sax_eventsId);
+        var relaxNGValidator = new RelaxNGValidator(result, sax_events, rng, false);
+        var saxParser = XMLReaderFactory.createXMLReader();
+        saxParser.setHandler(relaxNGValidator);
+        relaxNGValidator.setSaxParser(saxParser);
+        saxParser.parseString(xml);
+        document.getElementById("validate_wait").style.display = "none";
+    }
+    
+  </script>
+  
+	<style type="text/css">
+				#demonstration #xml {
+			display: block;
+            width: 99%;
+		}
+	</style>
+	
+  </head>
+  <body onload="window.defaultStatus='original status';" id="bodyId">
+    <div id="container">
+	    <div id="intro">
+
+			<div id="quickSummary">
+				<p class="p1"><span>
+					A <acronym title="EXtensible Stylesheet Language Transformation">XSLT</acronym> transformation will be applied to the <acronym title="EXtensible Markup Language">XML</acronym> specification in order to
+					create a <acronym title="EXtensible HyperText Markup Language">XHTML</acronym> form which will be inserted in the page.
+				</span></p>
+				<p class="p2"><span>
+					That form can be filled and will generate <acronym title="EXtensible Markup Language">XML</acronym> respecting the structure of the starting
+					specification.
+				</span></p>
+				<p class="p3"><span>
+					More technical information can be found in the <a href="#explanation">explanation</a> text.
+				</span></p>
+			</div>
+  		  
+			<div id="preamble">
+				<h3><span class="grey">Form </span><span class="yellow">generation</span></h3>
+				<p class="p1"><span>Here are the steps to follow :</span></p>
+				<ol>
+					<li>Choose a <acronym title="Relax Next Generation">RelaxNG</acronym> or a <acronym title="Xml Schema Definition">XSD</acronym> schema from the list.</li>
+                    <li>Before generating the form, you may change the default value (9) of the maximum numbers of ref/define followed in the schema. Some schemas are huge, that may be important for you to read it more deeply.</li>
+					<li>Click on &quot;generate form&quot; to get the <acronym title="EXtensible HyperText Markup Language">XHTML</acronym> form generated from that specification.</li>
+					<li>(optional) Choose an example file and click on &quot;initialize form&quot;.</li>
+					<li>(optional) Reset form by clicking on &quot;reset form&quot;.</li>
+					<li>Enter values in the form. Add or remove an element with the &quot;+&quot; and &quot;-&quot; buttons.</li>
+					<li>Click on &quot;Generate XML&quot; in order to dump values in <acronym title="EXtensible Markup Language">XML</acronym>.</li>
+				</ol>
+				<p class="p2"><span>
+					In a second time, the values entered in the form generate the <acronym title="EXtensible Markup Language">XML</acronym> respecting that specification.
+				</span></p>
+			</div>
+		</div>
+		
+		<div id="demonstration">
+	        <div id="schema_selection">
+				<select id="schema_select" onchange="initMaxRefs()">
+                    <option value="forms/schemas/metadata1-3.xml">metadata1-3.rng</option>
+					<option value="forms/schemas/test_schema.xml">test_schema.rng</option>
+					<option value="forms/schemas/xsd/test_schema.xsd">test_schema.xsd</option>
+                    <option value="forms/schemas/xsd/foo.xsd">foo.xsd</option>
+					<option value="forms/schemas/svg3d_main.rng">svg3d_main.rng</option>
+                    <option value="forms/schemas/mathml2.rng">mathml2.rng</option>
+                    <option value="forms/schemas/ContactXML_v1.1.rng">ContactXML_v1.1.rng</option>
+					<option value="forms/schemas/relaxCore.rng">relaxCore.rng</option>
+					<option value="forms/schemas/mns.rng">mns.rng</option>
+					<option value="forms/schemas/nrl.rng">nrl.rng</option>
+					<option value="forms/schemas/relaxng.rng">relaxng.rng</option>
+					<option value="forms/schemas/xslt.rng">xslt.rng</option>
+                    <option value="forms/schemas/hlink.rng">hlink.rng</option>
+                    <option value="forms/schemas/nitf-3-1.rng">nitf-3-1.rng</option>
+					<option value="forms/schemas/testSuite.rng">testSuite.rng</option>
+					<option value="forms/schemas/docbook/docbook.rng">docbook.rng</option>
+					<option value="forms/schemas/xhtml/xhtml.rng">xhtml.rng</option>
+                    <option value="forms/schemas/xlink.rng">xlink.rng</option>
+                    <option value="forms/schemas/retinaSchema.rng">retinaSchema.rng</option>
+					<option value="forms/schemas/FacetsML.rng">FacetsML.rng</option>
+					<option value="forms/schemas/cellclass.rng">cellclass.rng</option>
+					<option value="forms/schemas/random.rng">random.rng</option>
+					<option value="forms/schemas/benchmark.rng">benchmark.rng</option>
+					<option value="forms/schemas/PAX.rng">PAX.rng</option>
+				</select>
+                <label for="maxRefs">number of ref/define followed</label>
+                <input type="text" id="maxRefs" size="2"/>
+                <input type="submit" value="generate form" onclick="getFormAndInit()"/>
+				<img id="generate_wait" src="images/wait.gif" style="display: none"/>
+	    	</div>
+    		
+	    	<div id="example_selection">
+				<select id="example_select">
+		        </select>
+				<input type="button" value="initialize form"
+				onclick="initInputElements(getSelected('example_select'),document.getElementById('form'))" />
+	    	</div>
+	    	<div id="form">
+	    	</div>
+			<div id="generate_xml">
+				<input type="button" value="generate XML" onclick="saveChanges('form','xml')" />
+				<textarea id="xml" cols="90" rows="20"></textarea>
+                <input type="button" value="validate XML" onclick="validateXml('xml', 'schema_select', 'validation_result', 'sax_events')" />
+                <img id="validate_wait" src="images/wait.gif" style="display: none"/>
+                <div id="validation_result"></div>
+                <div id="sax_events" style="display: none"></div>
+			</div>
+	    </div>
+      
+		<div id="supportingText">
+			
+		    <div id="benefits">
+	    		<h3><span class="grey">Bene</span><span class="yellow">fits</span></h3>	    		<p class="p1"><span>
+					When facing <acronym title="EXtensible Markup Language">XML</acronym> specification the first problem I encountered is trying to reuse an existing standard.
+					Reading (and understanding) a <acronym title="EXtensible Markup Language">XML</acronym> specification is very painfull, especially if it is written using
+					<acronym title="Xml Schema Definition">XSD</acronym>. <acronym title="Relax Next Generation">RelaxNG</acronym> does not solve that problem, but at least reduces the complexity of the
+					schemas, and it also reduces a bit their verbosity.
+				</span></p>
+				<p class="p2"><span>
+					So one first thing I wanted to do was to see a schema in the form of a form :-).
+					That way I see the values which will be entered in that <acronym title="EXtensible Markup Language">XML</acronym> as input fields, with the markups around it.
+					In a second time, I will also be able to generate an example of a <acronym title="EXtensible Markup Language">XML</acronym> which respects that specification.
+				</span></p>
+	   		</div>
+			
+	  	    <div id="explanation">
+				<h3><span class="grey">Expla</span><span class="yellow">nation</span></h3>				<p class="p1"><span>
+					If the input <acronym title="EXtensible Markup Language">XML</acronym> specification is a <acronym title="Xml Schema Definition">XSD</acronym> schema, it will be converted into 
+					<acronym title="Relax Next Generation">RelaxNG</acronym> with a <acronym title="EXtensible Stylesheet Language Transformation">XSLT</acronym> tranformation better described in <a href="XSDtoRNG.php">XSD to 
+					RelaxNG</a> section of that web site. Then the <acronym title="Relax Next Generation">RelaxNG</acronym> schema will be transformed into a
+					<acronym title="EXtensible HyperText Markup Language">XHTML</acronym> form by another <acronym title="EXtensible Stylesheet Language Transformation">XSLT</acronym> named <a href="RNGtoHTMLform.php">RNGtoHTMLform.xsl</a>.
+					You will also find the correspondance table between the <acronym title="Relax Next Generation">RelaxNG</acronym> markups and what it creates in the form.
+				</span></p>
+				<p class="p2"><span>
+					One important thing to understand about that form generation is that each input field of that form is marked with an
+					attribute &quot;name&quot; which contains the <acronym title="Xml Path language">XPath</acronym> expression which points on that value in the
+					<acronym title="EXtensible Markup Language">XML</acronym>.
+				</span></p>
+				<p class="p3"><span>
+					When submitting that form, the javascript will read the values and generates the corresponding <acronym title="EXtensible Markup Language">XML</acronym>.
+					The algorithm which does that is described <a href="XPathtoXML.php">there</a>. It supports namespaces.
+				</span></p>
+				<p class="p4"><span>
+					The generated <acronym title="EXtensible Markup Language">XML</acronym> can be validated with a call to the server which will use a classic <acronym title="EXtensible Markup Language">XML</acronym>					API.
+				</span></p>
+			</div>
+		    
+		
+
+
+		<div id="participation">
+    		<h3><span class="grey">Partic</span><span class="yellow">ipation</span></h3>
+    		<p class="p1"><span>
+				All those developments are released under <a href="http://www.cecill.info/">Cecill</a> licence.
+		</span></p>
+    		<p class="p2"><span>
+				The project Forms Generator is available on a svn, contact me for more information. In the future, a project might be created on
+				sourceforge.
+		</span></p>
+    		<p class="p3"><span>
+				Projects <a href="http://code.google.com/p/svg3d/">svg 3d</a>, <a href="http://code.google.com/p/xsdtorngconverter/">XSD to RelaxNG converter</a>, <a href="http://code.google.com/p/jssaxparser/">javascript SAX parser</a>, <a href="http://code.google.com/p/jsrelaxngvalidator/">javascript RelaxNG validator</a>, <a href="http://code.google.com/p/jsdatatypelibrary/">javascript datatype library</a> are published on <a href="http://code.google.com/hosting/">Google code</a>.
+				Project <a href="https://github.com/ndebeiss/jsXmlSaxParser">javascript SAX parser</a> is also published on <a href="https://github.com/">Github</a>.
+		</span></p>
+		</div>
+		
+		<div id="requirements">
+			<h3><span class="grey">Requi</span><span class="yellow">rements</span></h3>
+			<p class="p1"><span>
+				In order to have javascript working as expected, please use last version of <a href="http://www.mozilla-europe.org/fr/products/firefox/">firefox</a>.
+			</span></p>
+			<p class="p2"><span>
+				For the applets, you will need to have <a href="http://www.java.com/fr/download/index.jsp">java</a> installed on your computer.
+			</span></p>
+	    </div>
+		
+        <div id="footer">
+          			<a href="http://validator.w3.org/check/referer" title="Check the validity of this site&#8217;s XHTML">xhtml</a> &nbsp; 
+          			<a href="http://jigsaw.w3.org/css-validator/check/referer" title="Check the validity of this site&#8217;s CSS">css</a> &nbsp; 
+          			<a href="http://creativecommons.org/licenses/by-nc-sa/1.0/" title="View details of the license of this site, courtesy of Creative Commons.">cc</a> &nbsp;
+        </div>	
+      </div>	 	
+      <div id="linkList">				
+        <div id="linkList2">					
+			<div id="lselect">
+				<h3 class="select"><span class="grey">Select</span><span class="yellow"> a Topic</span></h3>				 
+	          	<ul>
+	          		<li><a href="blog/" title="My blog">My <span class="accesskey">B</span>log</a>&nbsp;</li>
+	          		<li><a href="forms.php" title="Generating a XHTML form from a XML specification" accesskey="f"><span class="accesskey">F</span>orms generation</a>&nbsp;
+						<ul>
+							<li><a href="RNGtoHTMLform.php" title="Transforming a RelaxNG schema into a XHTML form" accesskey="r"><span class="accesskey">R</span>elaxNG to HTML</a>&nbsp;</li>
+							<li><a href="XPathtoXML.php" title="Generating XML from values of the form" accesskey="p">X<span class="accesskey">P</span>ath to XML</a>&nbsp;</li>
+						</ul>
+					</li>
+					<li><a href="relaxng.php" title="Validating XML against a RelaxNG schema" accesskey="v"><span class="accesskey">V</span>alidation</a><a href="tests/jsrelaxngvalidator/jsunit/testRunner.html?testPage=http://debeissat.nicolas.free.fr/tests/jsrelaxngvalidator/tests/relaxng_validator_tests.html" title="jsunit test page" class="jsunit_page">jsunit test page</a>&nbsp;
+						<ul>
+							<li><a href="sax.php" title="Reading XML without DOM" accesskey="a">S<span class="accesskey">A</span>X Parser</a><a href="tests/jssaxparser/jsunit/testRunner.html?testPage=http://debeissat.nicolas.free.fr/tests/jssaxparser/tests/sax_tests.html" title="jsunit test page" class="jsunit_page">jsunit test page</a>&nbsp;</li>
+                            <li><a href="datatype_library.php" title="Validating data against a datatype library" accesskey="d"><span class="accesskey">D</span>atatype library</a><a href="tests/jsdatatypelibrary/jsunit/testRunner.html?testPage=http://debeissat.nicolas.free.fr/tests/jsdatatypelibrary/tests/datatype_library_tests.html" title="jsunit test page" class="jsunit_page">jsunit test page</a>&nbsp;</li>
+							<li><a href="relaxng_simplification.php" title="Simplifying RelaxNG schemas" accesskey="i">S<span class="accesskey">i</span>mplify RelaxNG</a>&nbsp;</li>
+						</ul>
+					</li>
+					<li><a href="xsl_tests.php" title="Test Browser-embedded XSLT processor" accesskey="t"><span class="accesskey">T</span>est XSLT</a>&nbsp;</li>
+	          		<li><a href="XSDtoRNG.php" title="Converting XSD schema to RelaxNG" accesskey="x"><span class="accesskey">X</span>SD to RelaxNG</a>&nbsp;</li>
+	          		<li><a href="svg3d.php" title="Adding a third dimension to SVG pictures" accesskey="g">SV<span class="accesskey">G</span> 3D</a>&nbsp;
+                    	<ul>
+							<li><a href="svg3d_sort.php" title="Sorting SVG elements in the perspective order" accesskey="e">S<span class="accesskey">o</span>rting SVG</a>&nbsp;</li>
+							<li><a href="svg3d_protovis.php" title="Integration with Protovis" accesskey="S">Protovi<span class="accesskey">s</span> integration</a>&nbsp;</li>
+						</ul>
+                    </li>
+	          		<li><a href="zbuffer.php" title="Z-Buffer algorithm demonstration" accesskey="z"><span class="accesskey">Z</span>-buffer algorithm</a>&nbsp;</li>
+	          	</ul>
+			</div>
+          
+			<div id="lhome">
+            	<!-- ADDTHIS BUTTON BEGIN -->
+				<script type="text/javascript">
+				addthis_pub             = 'nicodeb'; 
+				addthis_options         = 'stumbleupon, digg, delicious, myspace, facebook, google, live, reddit, favorites, more';
+				</script>
+				<a href="http://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', '[URL]', '[TITLE]')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="http://s7.addthis.com/static/btn/lg-share-en.gif" width="125" height="16" border="0" alt="Share" /></a>
+				<script type="text/javascript" src="http://s7.addthis.com/js/152/addthis_widget.js"></script>
+				<!-- ADDTHIS BUTTON END -->
+				<ul>
+					<li><a href="index.php" title="Home page" accesskey="h"><span class="accesskey">H</span>ome page</a>&nbsp;</li>
+					<li><a href="contact.php" title="Contact me" accesskey="c"><span class="accesskey">C</span>ontact me</a>&nbsp;</li>
+				</ul>
+			</div>
+          
+			<div id="larchives">	
+			</div>			 			
+			<div id="lresources">
+				<h3 class="resources"><span class="grey">Reso</span><span class="yellow">urces:</span></h3>
+				<ul>
+					<li><a href="http://www.w3schools.com/Xsl/default.asp" title="XSLT tutorial of W3schools" accesskey="w">XSLT on <span class="accesskey">w</span>3schools</a></li>
+					<li><a href="http://www.relaxng.org/" title="RelaxNG home page" accesskey="n">Relax<span class="accesskey">N</span>G home page</a></li>
+					<li><a href="http://www.thaiopensource.com/relaxng/implement.html" title="Implementing RelaxNG validation" accesskey="m">I<span class="accesskey">m</span>plementing RelaxNG validation</a></li>
+				</ul>
+			</div>			
+        </div>	
+      </div>
+    </div>
+
+  </body>
+</html>
