@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  metadata.rnc
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  A compact syntax Relax NG Schema for the DBL @type="audio" metadata file.
+  DBL audio bundle version = 1.2
+-->
+<!--
+  - Suggested Dublin Core Metadata (DCMI) element/refinement relationships are
+    added as documentation strings "## DCMI: "
+  - A syntax encoding scheme may be mentioned after the DCMI documentation in
+    parentheses; e.g. language/iso (ISO639-3)
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<grammar ns="" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+         xmlns="http://relaxng.org/ns/structure/1.0"
+         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <start>
+    <ref name="m.DBLMetadata"/>
+  </start>
+
+  <div>
+    <define name="m._datatype.string2">
+      <data type="string">
+        <param name="minLength">2</param>
+      </data>
+    </define>
+  </div>
+
+  <div>
+    <define name="m.DBLMetadata.type">
+      <attribute name="type">
+        <value>audio</value>
+      </attribute>
+    </define>
+    <define name="m.DBLMetadata.typeVersion">
+      <attribute name="typeVersion">
+        <value>1.2-3</value>
+      </attribute>
+    </define>
+    <define name="m.DBLMetadata.id">
+      <attribute name="id">
+        <a:documentation>id is overwritten at submission</a:documentation>
+        <data type="string">
+          <param name="pattern">[a-f0-9]{16}</param>
+        </data>
+      </attribute>
+    </define>
+    <define name="m.DBLMetadata.revision">
+      <attribute name="revision">
+        <data type="integer"/>
+      </attribute>
+    </define>
+    <define name="m.DBLMetadata.attlist">
+      <interleave>
+        <ref name="m.DBLMetadata.type"/>
+        <ref name="m.DBLMetadata.typeVersion"/>
+        <ref name="m.DBLMetadata.id"/>
+        <ref name="m.DBLMetadata.revision"/>
+      </interleave>
+    </define>
+    <define name="m.DBLMetadata">
+      <element name="DBLMetadata">
+        <interleave>
+          <ref name="m.DBLMetadata.attlist"/>
+          <ref name="m.identification"/>
+          <ref name="m.confidential"/>
+          <optional>
+            <ref name="m.relationships"/>
+          </optional>
+        </interleave>
+      </element>
+    </define>
+  </div>
+
+  <div>
+    <define name="m.confidential">
+      <element name="confidential">
+        <a:documentation>DCMI: accessRights/confidential</a:documentation>
+        <data type="boolean"/>
+      </element>
+    </define>
+  </div>
+  <div>
+    <define name="m.relationships">
+      <element name="relationships">
+        <oneOrMore>
+          <ref name="m.relation"/>
+        </oneOrMore>
+      </element>
+    </define>
+  </div>
+
+
+  <div>
+    <define name="m.relation.type.enum">
+      <choice>
+        <value>text</value>
+        <value>print</value>
+        <value>audio</value>
+        <value>video</value>
+        <value>ebook</value>
+      </choice>
+    </define>
+    <define name="m.relation.type">
+      <attribute name="type">
+        <ref name="m.relation.type.enum"/>
+      </attribute>
+    </define>
+    <define name="m.relation.id">
+      <attribute name="id">
+        <data type="string">
+          <param name="pattern">[a-f0-9]{16}</param>
+        </data>
+      </attribute>
+    </define>
+    <define name="m.relation.revision">
+      <attribute name="revision">
+        <data type="integer"/>
+      </attribute>
+    </define>
+    <define name="m.relation.attlist">
+      <interleave>
+        <ref name="m.relation.type"/>
+        <ref name="m.relation.id"/>
+        <ref name="m.relation.revision"/>
+      </interleave>
+    </define>
+    <define name="m.relation">
+      <element name="relation">
+        <a:documentation>DCMI: relation</a:documentation>
+        <ref name="m.relation.attlist"/>
+      </element>
+    </define>
+  </div>
+
+  <div>
+    <define name="m.scope.enum">
+      <choice>
+        <value>Bible</value>
+        <value>Bible with Deuterocanon</value>
+        <value>Deuterocanon</value>
+        <value>New Testament</value>
+        <value>New Testament+</value>
+        <value>Old Testament</value>
+        <value>Old Testament + Deuterocanon</value>
+        <value>Old Testament+</value>
+        <value>Portions</value>
+        <value>Selections</value>
+        <value>Shorter Bible</value>
+      </choice>
+    </define>
+    <define name="m.scope">
+      <element name="scope">
+        <a:documentation>DCMI: title/scriptureScope</a:documentation>
+        <ref name="m.scope.enum"/>
+      </element>
+    </define>
+  </div>
+  <div>
+    <define name="m.systemId.type.enum">
+      <choice>
+        <value>gbc</value>
+        <a:documentation>Global Bible Catalogue entry ID</a:documentation>
+        <value>tms</value>
+        <a:documentation>UBS Translation Management System database ID</a:documentation>
+        <value>reap</value>
+        <a:documentation>SIL REAP database ID</a:documentation>
+        <value>dbp</value>
+        <a:documentation>FCBH Digital Bible Platform DAM ID</a:documentation>
+      </choice>
+    </define>
+    <define name="m.systemId.type">
+      <attribute name="type">
+        <ref name="m.systemId.type.enum"/>
+      </attribute>
+    </define>
+    <define name="m.systemId.attlist">
+      <ref name="m.systemId.type"/>
+    </define>
+    <define name="m.systemId">
+      <element name="systemId">
+        <ref name="m.systemId.attlist"/>
+        <ref name="m._datatype.string2"/>
+      </element>
+    </define>
+  </div>
+  <div>
+    <define name="m.bundleProducer">
+      <element name="bundleProducer">
+        <a:documentation>bundleProducer is overwritten by Paratext</a:documentation>
+        <ref name="m._datatype.string2"/>
+      </element>
+    </define>
+  </div>
+  <div>
+    <define name="m.identification">
+      <element name="identification">
+        <interleave>
+          <ref name="m.scope"/>
+          <zeroOrMore>
+            <ref name="m.systemId"/>
+          </zeroOrMore>
+          <ref name="m.bundleProducer"/>
+        </interleave>
+      </element>
+    </define>
+  </div>
+  
+  
+
+
+</grammar>
+<!-- Names Index -->

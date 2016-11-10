@@ -1,0 +1,16 @@
+<root>
+
+    <!--
+    <span class="indent">    </span>
+                <span class="indent">    </span>
+                <label for="/DBLMetadata/identification/nameLocal" class="element">nameLocal</label>
+                <div class="documentation">nameLocal should default to name</div>
+                <input type="text" name="/DBLMetadata/identification/nameLocal" class="data" />
+    -->
+
+    <markup name="/DBLMetadata/identification/nameLocal"><span class="indent">    </span>
+                <span class="indent">    </span>
+                <label for="/DBLMetadata/identification/nameLocal" class="element">nameLocal</label>
+                <div class="documentation">nameLocal should default to name</div>
+                <input type="text" name="/DBLMetadata/identification/nameLocal" class="data" /></markup>
+</root>

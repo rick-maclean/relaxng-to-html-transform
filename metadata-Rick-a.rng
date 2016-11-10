@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  metadata.rnc
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  A compact syntax Relax NG Schema for the DBL @type="audio" metadata file.
+  DBL audio bundle version = 1.2
+-->
+<!--
+  - Suggested Dublin Core Metadata (DCMI) element/refinement relationships are
+    added as documentation strings "## DCMI: "
+  - A syntax encoding scheme may be mentioned after the DCMI documentation in
+    parentheses; e.g. language/iso (ISO639-3)
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<grammar ns="" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+         xmlns="http://relaxng.org/ns/structure/1.0"
+         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  <start>
+    <ref name="m.DBLMetadata"/>
+  </start>
+  <div>
+    <define name="m.DBLMetadata.type">
+      <attribute name="type">
+        <value>audio</value>
+      </attribute>
+    </define>
+    <define name="m.DBLMetadata.typeVersion">
+      <attribute name="typeVersion">
+        <value>1.2-3</value>
+      </attribute>
+    </define>
+    <define name="m.DBLMetadata.attlist">
+      <interleave>
+        <ref name="m.DBLMetadata.type"/>
+        <ref name="m.DBLMetadata.typeVersion"/>
+      </interleave>
+    </define>
+    <define name="m.DBLMetadata">
+      <element name="DBLMetadata">
+        <interleave>
+          <ref name="m.DBLMetadata.attlist"/>
+        </interleave>
+      </element>
+    </define>
+  </div>
+</grammar>
+<!-- Names Index -->

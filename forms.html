@@ -57,8 +57,18 @@
 	function getExamples(chosenForm) {
 		var example_select = document.getElementById("example_select");
 		if (chosenForm.match("benchmark")) {
-			example_select.innerHTML = '<option value="forms/examples/benchmark/benchmark.xml">benchmark.xml</option>';
-		} else if (chosenForm.match("cellclass")) {
+		    example_select.innerHTML = '<option value="forms/examples/benchmark/benchmark.xml">benchmark.xml</option>';
+		}
+		else if (chosenForm.match("metadata1-3")) {
+		    example_select.innerHTML = '<option value="forms/examples/test_schema/metadata13_full-noheader.xml">metadata13_full-noheader.xml</option>';
+		}
+		else if (chosenForm.match("metadata-Ricksimple")) {
+		    example_select.innerHTML = '<option value="forms/examples/test_schema/metadata-Ricksimple.xml">metadata-Ricksimple.xml</option>';
+		}
+		else if (chosenForm.match("metadata-Rickmore")) {
+		    example_select.innerHTML = '<option value="forms/examples/test_schema/metadata-Rickmore.xml">metadata-Rickmore.xml</option>';
+		}
+		else if (chosenForm.match("cellclass")) {
 			example_select.innerHTML = "";
 		} else if (chosenForm.match("FacetsML")) {
 			example_select.innerHTML = '<option value="forms/examples/FacetsML/FacetsML.xml">FacetsML.xml</option><option value="forms/examples/FacetsML/VAbenchmarks_COBA.xml">VAbenchmarks_COBA.xml</option>';
@@ -74,8 +84,6 @@
 			example_select.innerHTML = '<option value="forms/examples/svg3d/ball_3d.xml">ball_3d.xml</option><option value="forms/examples/svg3d/indigo_arc.xml">indigo_arc.xml</option><option value="forms/examples/svg3d/pyramide_3faces.xml">pyramide_3faces.xml</option><option value="forms/examples/svg3d/pyramide_4faces_rotating.xml">pyramide_4faces_rotating.xml</option>';
 		} else if (chosenForm.match("test_schema")) {
 		    example_select.innerHTML = '<option value="forms/examples/test_schema/test_schema.xml">test_schema.xml</option>';
-		} else if (chosenForm.match("metadata1-3")) {
-		    example_select.innerHTML = '<option value="forms/examples/test_schema/metadata13_full-noheader.xml">metadata13_full-noheader.xml</option>';
 		} else if (chosenForm.match("nitf-3-1")) {
 			example_select.innerHTML = '<option value="forms/examples/nitf-3-1/nitf.xml">nitf.xml</option>';
 		} else if (chosenForm.match("foo")) {
@@ -152,7 +160,10 @@
 		<div id="demonstration">
 	        <div id="schema_selection">
 				<select id="schema_select" onchange="initMaxRefs()">
-                    <option value="forms/schemas/metadata1-3.xml">metadata1-3.rng</option>
+                    <option value="forms/schemas/metadata-Rickmore.xml">metadata-Rickmore.rng(xml)</option>
+                    <option value="forms/schemas/metadata1-3.xml">metadata1-3.rng(xml)</option>
+                    <option value="forms/schemas/metadata-Ricksimple.xml">metadata-Ricksimple.rng(xml)</option>
+
 					<option value="forms/schemas/test_schema.xml">test_schema.rng</option>
 					<option value="forms/schemas/xsd/test_schema.xsd">test_schema.xsd</option>
                     <option value="forms/schemas/xsd/foo.xsd">foo.xsd</option>
