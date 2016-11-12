@@ -1,5 +1,5 @@
 /*
-Copyright or © or Copr. INRIA contributor(s) : Nicolas Debeissat
+Copyright or Â© or Copr. INRIA contributor(s) : Nicolas Debeissat
 
 nicolas.debeissat@gmail.com (http://debeissat.nicolas.free.fr/)
 
@@ -84,6 +84,9 @@ function createFormDataArray(form) {
                 }
                 //idem for input type=text
                 else if (inputElement.getAttribute("type") == "text") {
+                    addValueToFormArray(inputElement.name, inputElement.value, formArray);
+                }
+                else if (inputElement.getAttribute("type") == "url") {
                     addValueToFormArray(inputElement.name, inputElement.value, formArray);
                 }
                 //idem for input type=file
