@@ -1,5 +1,5 @@
 /*
-Copyright or © or Copr. INRIA contributor(s) : Nicolas Debeissat
+Copyright or Â© or Copr. INRIA contributor(s) : Nicolas Debeissat
 
 nicolas.debeissat@gmail.com (http://debeissat.nicolas.free.fr/)
 
@@ -237,7 +237,7 @@ function setAttribute(inputElement, data) {
         //security issue, can not set programmatically the value of an input type="file" so I put a message
     } else if (inputElement.getAttribute("type") == "file") {
         var text = "<i>!it is not allowed to programmatically set the value of that input type=file to : <br />" + data + "</i>";
-        if (inputElement.nextSibling && inputElement.nextSibling.getAttribute("id") == "warningtext") {
+        if (inputElement.nextSibling && inputElement.nextSibling.nodeType != 3 && inputElement.nextSibling.getAttribute("id") == "warningtext") {
             inputElement.nextSibling.innerHTML = text;
         } else {
             var warningText = document.createElement("div");
