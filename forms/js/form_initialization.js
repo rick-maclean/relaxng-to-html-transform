@@ -234,6 +234,9 @@ function setAttribute(inputElement, data) {
     } else if (inputElement.getAttribute("type") == "text") {
         inputElement.value = data;
         return true;
+    } else if (inputElement.getAttribute("type") == "url") {
+        inputElement.value = data;
+        return true;
         //security issue, can not set programmatically the value of an input type="file" so I put a message
     } else if (inputElement.getAttribute("type") == "file") {
         var text = "<i>!it is not allowed to programmatically set the value of that input type=file to : <br />" + data + "</i>";
