@@ -60,13 +60,7 @@
 		    example_select.innerHTML = '<option value="forms/examples/benchmark/benchmark.xml">benchmark.xml</option>';
 		}
 		else if (chosenForm.match("metadata1-3")) {
-		    example_select.innerHTML = '<option value="forms/examples/test_schema/metadata13_full-noheader.xml">metadata13_full-noheader.xml</option>';
-		}
-		else if (chosenForm.match("metadata-Ricksimple")) {
-		    example_select.innerHTML = '<option value="forms/examples/test_schema/metadata-Ricksimple.xml">metadata-Ricksimple.xml</option>';
-		}
-		else if (chosenForm.match("metadata-Rickmore")) {
-		    example_select.innerHTML = '<option value="forms/examples/test_schema/metadata-Rickmore.xml">metadata-Rickmore.xml</option>';
+		    example_select.innerHTML = '<option value="metadata13.xml">full metadata13.xml</option><option value="metadata_blank.xml">metadata_blank.xml</option>';
 		}
 		else if (chosenForm.match("cellclass")) {
 			example_select.innerHTML = "";
@@ -160,10 +154,7 @@
 		<div id="demonstration">
 	        <div id="schema_selection">
 				<select id="schema_select" onchange="initMaxRefs()">
-                    <option value="forms/schemas/metadata-Rickmore.xml">metadata-Rickmore.rng(xml)</option>
-                    <option value="forms/schemas/metadata1-3.xml">metadata1-3.rng(xml)</option>
-                    <option value="forms/schemas/metadata-Ricksimple.xml">metadata-Ricksimple.rng(xml)</option>
-
+				    <option value="forms/schemas/metadata1-3.xml">metadata1-3.rng(xml)</option>
 					<option value="forms/schemas/test_schema.xml">test_schema.rng</option>
 					<option value="forms/schemas/xsd/test_schema.xsd">test_schema.xsd</option>
                     <option value="forms/schemas/xsd/foo.xsd">foo.xsd</option>

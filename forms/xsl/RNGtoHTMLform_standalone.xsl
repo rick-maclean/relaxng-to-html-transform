@@ -550,7 +550,7 @@ knowledge of the CeCILL license and that you accept its terms.
                 <textarea name="{$pathInXml}/text()" class="text" cols="90" rows="6"> </textarea>
             </xsl:when>
             <xsl:when test="$type='anyURI'">
-                <input type="file" name="{$pathInXml}" class="file"/>
+                <input type="url" name="{$pathInXml}" class="url"/>
             </xsl:when>
             <xsl:otherwise>
                 <input type="text" name="{$pathInXml}" class="data"/>
