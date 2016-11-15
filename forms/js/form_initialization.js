@@ -192,7 +192,7 @@ then the xpath input field to look for is xpath[1]
 */
 function getNameRegExp(xpath) {
     var regExp = escapeRegExp(xpath);
-    regExp = regExp.replace(/(\w)\//g, "$1(\\[1\\])?/");
+    regExp = regExp.replace(/(\w)\//g, "$1(\\[1\\])?(\\[\\])?/");
     return regExp;
 };
 
@@ -206,7 +206,7 @@ function getInputFields(xpath, form) {
     var regExp = getNameRegExp(xpath);
     //adds the final (\[1\])? if needed (no 'text()' or '@' of attributes))
     if (!xpath.match("text\(\)") && !xpath.match("@")) {
-        regExp = regExp + "(\\[1\\])?";
+        regExp = regExp + "(\\[1\\])?(\\[\\])?";
     }
     regExp = new RegExp("^" + regExp + "$");
     var inputs = getInputs(form, regExp);
@@ -281,7 +281,7 @@ function setOptionDisplayed(inputElement) {
     //is only the div element above which is not displayed)
     if(!isDisplayed(selectElement)) {
         //must be recursive if this select is not displayed itself
-        setOptionDisplayed(inputElement);
+        setOptionDisplayed(selectElement);
     }
     showOptionContent(selectElement);
 };
