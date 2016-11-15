@@ -163,7 +163,20 @@ function addData(domNode, xpath, form) {
  input fields and call setAttribute() on it
  */
 function setData(xpath, value, form) {
-    var inputs = getInputFields(xpath, form);
+    var nameQry = '[name="' + xpath + '"]';
+    var inputs = form.querySelectorAll('input' + nameQry + ',textarea' + nameQry);
+    if (inputs.length == 0) {
+        inputs = getInputFields(xpath, form);
+    }
+    if (inputs.length > 0) {
+        for (var i = 0; i < inputs.length; i++) {
+            if (["text", "url", "data"].indexOf(inputs[i].getAttribute("class")) == -1)
+                continue;
+            // just set the first text and don't try to split up anything.
+            setAttribute(inputs[i], value);
+            return;
+        }
+    }
     //manage the case of a list (whitespace-separated values)
     if (value.match(" ") && inputs.length > 1) {
         var values = value.split(" ");
