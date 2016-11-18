@@ -459,6 +459,7 @@ knowledge of the CeCILL license and that you accept its terms.
                     </xsl:apply-templates>
                 </xsl:when>
                 <xsl:otherwise>
+                    <xsl:text>&#xa;</xsl:text><xsl:value-of select="$newPathInXml"/>=
                 </xsl:otherwise>
             </xsl:choose>
             <!-- may not have rng:data (docbook.rng) -->
