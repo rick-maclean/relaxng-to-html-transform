@@ -215,11 +215,12 @@ knowledge of the CeCILL license and that you accept its terms.
     <xsl:template match="rng:optional">
         <xsl:param name="pathInXml"/>
         <xsl:param name="refs"/>
-        <xsl:text>&#xa;</xsl:text><xsl:value-of select="$pathInXml"/>(optional)
+        <xsl:text>&#xa;</xsl:text><xsl:value-of select="$pathInXml"/>(optional:
             <xsl:apply-templates>
                 <xsl:with-param name="pathInXml" select="$pathInXml"/>
                 <xsl:with-param name="refs" select="$refs"/>
             </xsl:apply-templates>
+        )<xsl:value-of select="$pathInXml"/>
     </xsl:template>
     
     <!-- <rng:zeroOrMore> and <rng:oneOrMore> are treated the same, adding a [] to the pathInXml
@@ -231,26 +232,27 @@ knowledge of the CeCILL license and that you accept its terms.
         <xsl:call-template name="indent">
             <xsl:with-param name="pathInXml" select="$pathInXml"/>
         </xsl:call-template>
-        <xsl:text>&#xa;</xsl:text><xsl:value-of select="$pathInXml"/>(required+) 
+        <xsl:text>&#xa;</xsl:text><xsl:value-of select="$pathInXml"/>(required+: 
             <!-- the easyest way to add a [0] on the children element in pathInXml is to put []
                 on it now -->
             <xsl:apply-templates>
                 <xsl:with-param name="pathInXml" select="concat($pathInXml, '[]')"/>
                 <xsl:with-param name="refs" select="$refs"/>
             </xsl:apply-templates>
-        )
+        )<xsl:value-of select="$pathInXml"/>
     </xsl:template>
 
     <xsl:template match="rng:zeroOrMore">
         <xsl:param name="pathInXml"/>
         <xsl:param name="refs"/>
-        <xsl:text>&#xa;</xsl:text><xsl:value-of select="$pathInXml"/>(optional+)
+        <xsl:text>&#xa;</xsl:text><xsl:value-of select="$pathInXml"/>(optional+:
             <!-- the easyest way to add a [0] on the children element in pathInXml is to put []
                 on it now -->
             <xsl:apply-templates>
                 <xsl:with-param name="pathInXml" select="concat($pathInXml, '[]')"/>
                 <xsl:with-param name="refs" select="$refs"/>
             </xsl:apply-templates>
+        )<xsl:value-of select="$pathInXml"/>
     </xsl:template>
     
     <!-- with an <rng:element>, I continue on the children, adding the current element to
