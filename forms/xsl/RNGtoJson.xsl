@@ -518,17 +518,11 @@ knowledge of the CeCILL license and that you accept its terms.
         <xsl:param name="pathInXml"/>
         <xsl:param name="type"/>
         <xsl:choose>
-            <xsl:when test="$type='boolean'">
-                <xsl:text>&#xa;</xsl:text>"<xsl:value-of select="$pathInXml"/>", "boolean"
-            </xsl:when>
             <xsl:when test="$type='text'">
                 <xsl:text>&#xa;</xsl:text>"<xsl:value-of select="$pathInXml"/>/text()", "text"
             </xsl:when>
-            <xsl:when test="$type='anyURI'">
-                <xsl:text>&#xa;</xsl:text>"<xsl:value-of select="$pathInXml"/>", "anyURI"
-            </xsl:when>
             <xsl:otherwise>
-                <xsl:text>&#xa;</xsl:text>"<xsl:value-of select="$pathInXml"/>", "data"
+                <xsl:text>&#xa;</xsl:text>"<xsl:value-of select="$pathInXml"/>", "<xsl:value-of select="$type"/>"
             </xsl:otherwise>
         </xsl:choose>        
     </xsl:template>
