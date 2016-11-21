@@ -464,7 +464,7 @@ knowledge of the CeCILL license and that you accept its terms.
     </xsl:template>
     
     <!-- with a <rng:attribute>, we wait for a <rng:data> which will become an input field -->
-    
+    <xsl:template match="text()"/>
     <xsl:template match="rng:attribute">
         <xsl:param name="pathInXml"/>
         <xsl:param name="refs"/>
@@ -487,7 +487,7 @@ knowledge of the CeCILL license and that you accept its terms.
                     </xsl:apply-templates>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:text>&#xa;</xsl:text>"<xsl:value-of select="$newPathInXml"/>" :
+                    <xsl:text>&#xa;</xsl:text>"<xsl:value-of select="$newPathInXml"/>" : <xsl:if test="rng:value">"<xsl:value-of select="rng:value"/>"</xsl:if>
                 </xsl:otherwise>
             </xsl:choose>
             <!-- may not have rng:data (docbook.rng) -->
@@ -560,10 +560,7 @@ knowledge of the CeCILL license and that you accept its terms.
                 <xsl:text>&#xa;</xsl:text>"<xsl:value-of select="$pathInXml"/>/text()", "text"
             </xsl:when>
             <xsl:otherwise>
-                <xsl:text>&#xa;</xsl:text>"<xsl:value-of select="$pathInXml"/>", "<xsl:value-of select="$type"/>", 
-                {<xsl:if test="$pattern">"pattern": "<xsl:value-of select="$pattern"/>", </xsl:if>
-                <xsl:if test="$minLength">"minLength": "<xsl:value-of select="$minLength"/>", </xsl:if>
-                <xsl:if test="$maxLength">"maxLength": "<xsl:value-of select="$maxLength"/>"</xsl:if>}
+                <xsl:text>&#xa;</xsl:text>"<xsl:value-of select="$pathInXml"/>", "<xsl:value-of select="$type"/>", {<xsl:if test="$pattern">"pattern": "<xsl:value-of select="$pattern"/>", </xsl:if><xsl:if test="$minLength">"minLength": "<xsl:value-of select="$minLength"/>", </xsl:if><xsl:if test="$maxLength">"maxLength": "<xsl:value-of select="$maxLength"/>"</xsl:if>}
             </xsl:otherwise>
         </xsl:choose>        
     </xsl:template>
