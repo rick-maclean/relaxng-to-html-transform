@@ -517,12 +517,18 @@ knowledge of the CeCILL license and that you accept its terms.
     <xsl:template name="inputField">
         <xsl:param name="pathInXml"/>
         <xsl:param name="type"/>
+        <xsl:variable name="pattern" select="rng:param[@name = 'pattern']"/>
+        <xsl:variable name="minLength" select="rng:param[@name = 'minLength']"/>
+        <xsl:variable name="maxLength" select="rng:param[@name = 'maxLength']"/>
         <xsl:choose>
             <xsl:when test="$type='text'">
                 <xsl:text>&#xa;</xsl:text>"<xsl:value-of select="$pathInXml"/>/text()", "text"
             </xsl:when>
             <xsl:otherwise>
-                <xsl:text>&#xa;</xsl:text>"<xsl:value-of select="$pathInXml"/>", "<xsl:value-of select="$type"/>"
+                <xsl:text>&#xa;</xsl:text>"<xsl:value-of select="$pathInXml"/>", "<xsl:value-of select="$type"/>", 
+                {<xsl:if test="$pattern">"pattern": "<xsl:value-of select="$pattern"/>", </xsl:if>
+                <xsl:if test="$minLength">"minLength": "<xsl:value-of select="$minLength"/>", </xsl:if>
+                <xsl:if test="$maxLength">"maxLength": "<xsl:value-of select="$maxLength"/>"</xsl:if>}
             </xsl:otherwise>
         </xsl:choose>        
     </xsl:template>
