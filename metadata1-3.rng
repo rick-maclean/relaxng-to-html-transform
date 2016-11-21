@@ -259,6 +259,9 @@
     <define name="m.agencies">
       <element name="agencies">
         <interleave>
+            <oneOrMore>
+            <ref name="m.rightsHolder"/>
+            </oneOrMore>
           <oneOrMore>
             <ref name="m.contributor"/>
           </oneOrMore>
@@ -355,15 +358,13 @@
       </attribute>
     </define>
     <define name="m.contributor.attlist">
-      <oneOrMore>
-        <choice>
+      <interleave>
           <ref name="m.contributor.content"/>
           <ref name="m.contributor.publication"/>
           <ref name="m.contributor.management"/>
           <ref name="m.contributor.finance"/>
           <ref name="m.contributor.qa"/>
-        </choice>
-      </oneOrMore>
+      </interleave>
     </define>
     <define name="m.contributor">
       <element name="contributor">
