@@ -88,7 +88,7 @@ knowledge of the CeCILL license and that you accept its terms.
     
     <xsl:template match="rng:ref">
         <xsl:param name="pathInXml"/>
-        <xsl:param name="refs"/>
+        <xsl:param name="refs"/><xsl:param name="optional"/>
         <xsl:variable name="nodeName" select="@name"/>
         <xsl:variable name="newRefs" select="concat($refs, '/', $nodeName)"/>
         <xsl:variable name="boundedNodeName" select="concat('/', $nodeName, '/')"/>
@@ -131,7 +131,7 @@ knowledge of the CeCILL license and that you accept its terms.
     
     <xsl:template name="goToDefine">
     	<xsl:param name="pathInXml"/>
-        <xsl:param name="refs"/>
+        <xsl:param name="refs"/><xsl:param name="optional"/>
         <xsl:variable name="nodeName" select="@name"/>
         <xsl:choose>
             <xsl:when test="/rng:grammar//rng:define[@name = $nodeName]">
@@ -170,7 +170,7 @@ knowledge of the CeCILL license and that you accept its terms.
     
     <xsl:template match="rng:include|rng:externalRef">
         <xsl:param name="pathInXml"/>
-        <xsl:param name="refs"/>
+        <xsl:param name="refs"/><xsl:param name="optional"/>
         <xsl:param name="nodeName"/>
         <!-- need to add a history variable in order to avoid infinite loop if schemas include themselves and nodeName is not defined -->
         <xsl:param name="alreadyCheckedSchemas" select="''"/>
@@ -205,7 +205,7 @@ knowledge of the CeCILL license and that you accept its terms.
     
     <xsl:template match="rng:define|rng:interleave|rng:div|rng:group">
         <xsl:param name="pathInXml"/>
-        <xsl:param name="refs"/>
+        <xsl:param name="refs"/><xsl:param name="optional"/>
         <xsl:apply-templates>
             <xsl:with-param name="pathInXml" select="$pathInXml"/>
             <xsl:with-param name="refs" select="$refs"/>
@@ -214,11 +214,12 @@ knowledge of the CeCILL license and that you accept its terms.
     
     <xsl:template match="rng:optional">
         <xsl:param name="pathInXml"/>
-        <xsl:param name="refs"/>
+        <xsl:param name="refs"/><xsl:param name="optional"/>
         <xsl:text>&#xa;</xsl:text><xsl:value-of select="$pathInXml"/>(optional:
             <xsl:apply-templates>
                 <xsl:with-param name="pathInXml" select="$pathInXml"/>
                 <xsl:with-param name="refs" select="$refs"/>
+                <xsl:with-param name="optional" select="'true'"/>
             </xsl:apply-templates>
         )<xsl:value-of select="$pathInXml"/>
     </xsl:template>
@@ -228,7 +229,7 @@ knowledge of the CeCILL license and that you accept its terms.
     
     <xsl:template match="rng:oneOrMore">
         <xsl:param name="pathInXml"/>
-        <xsl:param name="refs"/>
+        <xsl:param name="refs"/><xsl:param name="optional"/>
         <xsl:call-template name="indent">
             <xsl:with-param name="pathInXml" select="$pathInXml"/>
         </xsl:call-template>
@@ -244,13 +245,14 @@ knowledge of the CeCILL license and that you accept its terms.
 
     <xsl:template match="rng:zeroOrMore">
         <xsl:param name="pathInXml"/>
-        <xsl:param name="refs"/>
+        <xsl:param name="refs"/><xsl:param name="optional"/>
         <xsl:text>&#xa;</xsl:text><xsl:value-of select="$pathInXml"/>(optional+:
             <!-- the easyest way to add a [0] on the children element in pathInXml is to put []
                 on it now -->
             <xsl:apply-templates>
                 <xsl:with-param name="pathInXml" select="concat($pathInXml, '[]')"/>
                 <xsl:with-param name="refs" select="$refs"/>
+                <xsl:with-param name="optional" select="'true'"/>
             </xsl:apply-templates>
         )<xsl:value-of select="$pathInXml"/>
     </xsl:template>
@@ -262,6 +264,7 @@ knowledge of the CeCILL license and that you accept its terms.
     <xsl:template match="rng:element">
         <xsl:param name="pathInXml"/>
         <xsl:param name="refs"/>
+        <xsl:param name="optional"/>
         <xsl:variable name="elementName">
             <xsl:apply-templates select="@name|rng:name" mode="getName"/>
         </xsl:variable>
@@ -270,10 +273,10 @@ knowledge of the CeCILL license and that you accept its terms.
                 <xsl:when test="contains($pathInXml, '[]')">
                     <!-- if pathInXml contains [], that means the following element (the current one) can be repeated
                         so the pathInXml with is now : /neuroML/cells[] must become /neuroML/cells/cell[0] -->
-                    <xsl:value-of select="concat(substring-before($pathInXml, '[]'), '/', $elementName, '[1]')"/>
+                    <xsl:value-of select="concat(substring-before($pathInXml, '[]'), '/', $elementName, '[1]', $optionalMarker)"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:value-of select="concat($pathInXml, '/', $elementName)"/>
+                    <xsl:value-of select="concat($pathInXml, '/', $elementName, $optionalMarker)"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
@@ -303,7 +306,7 @@ knowledge of the CeCILL license and that you accept its terms.
      
     <xsl:template match="rng:list">
         <xsl:param name="pathInXml"/>
-        <xsl:param name="refs"/>
+        <xsl:param name="refs"/><xsl:param name="optional"/>
         <xsl:choose>
         	<!-- test that all the nodes are rng:zeroOrMore/rng:choice/rng:value -->
         	<xsl:when test="count(rng:*/rng:*/rng:*) = count(*[self::rng:zeroOrMore or self::rng:oneOrMore]/rng:choice/rng:value)">
@@ -327,7 +330,7 @@ knowledge of the CeCILL license and that you accept its terms.
     
     <xsl:template match="rng:value" mode="list">
         <xsl:param name="pathInXml"/>
-        <xsl:param name="refs"/>
+        <xsl:param name="refs"/><xsl:param name="optional"/>
         <xsl:variable name="value" select="text()"/>
         <xsl:text>&#xa;</xsl:text>"{$pathInXml}/text()={$value}"
     </xsl:template>
@@ -336,7 +339,7 @@ knowledge of the CeCILL license and that you accept its terms.
     
     <xsl:template match="rng:choice">
         <xsl:param name="pathInXml"/>
-        <xsl:param name="refs"/>
+        <xsl:param name="refs"/><xsl:param name="optional"/>
         <xsl:choose>
             <!-- if choices are a list of value, then that <select> value will be a value in the XML, then I add a 
                 flag sendselect="yes", it must be taken in account when building the XML -->
@@ -401,7 +404,7 @@ knowledge of the CeCILL license and that you accept its terms.
     
     <xsl:template match="rng:ref[@name]" mode="addHidden">
         <xsl:param name="pathInXml"/>
-        <xsl:param name="refs"/>
+        <xsl:param name="refs"/><xsl:param name="optional"/>
         <xsl:param name="nodeName" select="@name"/>
             <xsl:apply-templates select="current()">
                 <xsl:with-param name="pathInXml" select="$pathInXml"/>
@@ -411,7 +414,7 @@ knowledge of the CeCILL license and that you accept its terms.
     
     <xsl:template match="rng:element" mode="addHidden">
         <xsl:param name="pathInXml"/>
-        <xsl:param name="refs"/>
+        <xsl:param name="refs"/><xsl:param name="optional"/>
         <xsl:variable name="elementName">
             <xsl:apply-templates select="@name|rng:name" mode="getName"/>
         </xsl:variable>
@@ -423,7 +426,7 @@ knowledge of the CeCILL license and that you accept its terms.
     
     <xsl:template match="rng:*" mode="addHidden">
         <xsl:param name="pathInXml"/>
-        <xsl:param name="refs"/>
+        <xsl:param name="refs"/><xsl:param name="optional"/>
         <xsl:variable name="optionName">
             <xsl:value-of select="concat(local-name(), ' ', position())"/>
         </xsl:variable>
@@ -445,7 +448,7 @@ knowledge of the CeCILL license and that you accept its terms.
     
     <xsl:template match="rng:attribute">
         <xsl:param name="pathInXml"/>
-        <xsl:param name="refs"/>
+        <xsl:param name="refs"/><xsl:param name="optional"/>
         <xsl:variable name="attributeName">
             <xsl:apply-templates select="@name|rng:name" mode="getAttributeName"/>
         </xsl:variable>
@@ -570,7 +573,7 @@ knowledge of the CeCILL license and that you accept its terms.
 	
     <xsl:template match="rng:anyName">
         <xsl:param name="pathInXml"/>
-        <xsl:param name="refs"/>
+        <xsl:param name="refs"/><xsl:param name="optional"/>
         <xsl:call-template name="indent">
             <xsl:with-param name="pathInXml" select="$pathInXml"/>
         </xsl:call-template>
