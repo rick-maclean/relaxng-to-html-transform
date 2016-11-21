@@ -73,23 +73,11 @@
     <define name="m.DBLMetadata">
       <element name="DBLMetadata">
         <interleave>
-          <ref name="m.DBLMetadata.attlist"/>
-          <ref name="m.identification"/>
-          <ref name="m.confidential"/>
-          <optional>
-            <ref name="m.relationships"/>
-          </optional>
           <ref name="m.agencies"/>
-          <ref name="m.language"/>
-          <ref name="m.country"/>
-          <ref name="m.type"/>
-          <ref name="m.format"/>
-          <ref name="m.books"/>
           <ref name="m.copyright"/>
           <optional>
             <ref name="m.promotion"/>
           </optional>
-          <ref name="m.archiveStatus"/>
         </interleave>
       </element>
     </define>
@@ -271,12 +259,6 @@
     <define name="m.agencies">
       <element name="agencies">
         <interleave>
-          <oneOrMore>
-            <ref name="m.rightsHolder"/>
-          </oneOrMore>
-          <optional>
-            <ref name="m.rightsAdmin"/>
-          </optional>
           <oneOrMore>
             <ref name="m.contributor"/>
           </oneOrMore>
