@@ -361,25 +361,25 @@ knowledge of the CeCILL license and that you accept its terms.
             <!-- if choices are a list of value, then that <select> value will be a value in the XML, then I add a 
                 flag sendselect="yes", it must be taken in account when building the XML -->
             <xsl:when test="rng:value">
-                <xsl:text>&#xa;</xsl:text>"<xsl:value-of select="$pathInXml"/>" : [
+                <xsl:text>&#xa;</xsl:text><xsl:text>"</xsl:text><xsl:value-of select="$pathInXml"/><xsl:text>" : [</xsl:text>
                     <!-- In order not to send values if nothing has been entered, the <select> has a blank value. 
                     When the form appears, that is that blank value which is selected -->
                     <xsl:apply-templates select="rng:value" mode="choice">
                         <xsl:with-param name="pathInXml" select="$pathInXml"/>
                         <xsl:with-param name="refs" select="$refs"/>
                     </xsl:apply-templates>
-                ],
+                <xsl:text>]</xsl:text>,
             </xsl:when>
             <!-- if it is not <rng:value>, it should be <rng:ref> of <rng:element> -->
             <xsl:otherwise>
                 <xsl:call-template name="indent">
                     <xsl:with-param name="pathInXml" select="$pathInXml"/>
                 </xsl:call-template>
-                <xsl:text>&#xa;</xsl:text>"<xsl:value-of select="$pathInXml"/>" : [
+                <xsl:text>&#xa;</xsl:text>"<xsl:value-of select="$pathInXml"/><xsl:text>" : [</xsl:text>
                     <xsl:apply-templates mode="choice">
                         <xsl:with-param name="pathInXml" select="$pathInXml"/>
                     </xsl:apply-templates>
-                ],
+                <xsl:text>],</xsl:text>
                 <!-- the content of the <rng:ref> (i.e. the corresponding define) or <rng:element> choices 
                     are added as hidden <div> after the <select> -->
                 <xsl:apply-templates mode="addHidden">
@@ -460,7 +460,7 @@ knowledge of the CeCILL license and that you accept its terms.
     <xsl:template match="rng:value" mode="choice">
         <xsl:param name="pathInXml"/>
         <xsl:param name="nodeName" select="text()"/>
-        "<xsl:value-of select="$nodeName"/>",
+        <xsl:text>"</xsl:text><xsl:value-of select="$nodeName"/><xsl:text>",</xsl:text>
     </xsl:template>
     
     <!-- with a <rng:attribute>, we wait for a <rng:data> which will become an input field -->
@@ -487,7 +487,10 @@ knowledge of the CeCILL license and that you accept its terms.
                     </xsl:apply-templates>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:text>&#xa;</xsl:text>"<xsl:value-of select="$newPathInXml"/>" : <xsl:if test="rng:value">"<xsl:value-of select="rng:value"/>"</xsl:if>
+                    <xsl:text>&#xa;</xsl:text>"<xsl:value-of select="$newPathInXml"/><xsl:text>" : </xsl:text>
+                    <xsl:if test="rng:value">
+                        <xsl:text>"</xsl:text><xsl:value-of select="rng:value"/><xsl:text>"</xsl:text>
+                    </xsl:if>
                 </xsl:otherwise>
             </xsl:choose>
             <!-- may not have rng:data (docbook.rng) -->
