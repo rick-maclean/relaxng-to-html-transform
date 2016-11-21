@@ -464,7 +464,7 @@ knowledge of the CeCILL license and that you accept its terms.
     <xsl:template match="rng:value" mode="choice">
         <xsl:param name="pathInXml"/>
         <xsl:param name="nodeName" select="text()"/>
-        <xsl:text>&#xa;</xsl:text>"<xsl:value-of select="$pathInXml"/>" : "<xsl:value-of select="$nodeName"/>",
+        "<xsl:value-of select="$nodeName"/>",
     </xsl:template>
     
     <!-- with a <rng:attribute>, we wait for a <rng:data> which will become an input field -->
@@ -491,7 +491,7 @@ knowledge of the CeCILL license and that you accept its terms.
                     </xsl:apply-templates>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:text>&#xa;</xsl:text><xsl:value-of select="$newPathInXml"/>=
+                    <xsl:text>&#xa;</xsl:text>"<xsl:value-of select="$newPathInXml"/>" :
                 </xsl:otherwise>
             </xsl:choose>
             <!-- may not have rng:data (docbook.rng) -->
