@@ -247,6 +247,9 @@ knowledge of the CeCILL license and that you accept its terms.
         <xsl:text>&#xa;</xsl:text><xsl:value-of select="$pathInXml"/>
             <!-- the easyest way to add a [0] on the children element in pathInXml is to put []
                 on it now -->
+        <xsl:if test="$optional">
+            <xsl:text>&#xa;</xsl:text>"<xsl:value-of select="$pathInXml"/>", "", "", "", "optional"
+        </xsl:if>
             <xsl:apply-templates>
                 <xsl:with-param name="pathInXml" select="concat($pathInXml, '[]')"/>
                 <xsl:with-param name="refs" select="$refs"/>
@@ -496,7 +499,6 @@ knowledge of the CeCILL license and that you accept its terms.
                 <xsl:when test="count(rng:*) = 0">
                     <xsl:call-template name="inputField">
                         <xsl:with-param name="pathInXml" select="$newPathInXml"/>
-                        <xsl:with-param name="optional" select="$optional"/>
                     </xsl:call-template>
                 </xsl:when>
                 <xsl:otherwise>
